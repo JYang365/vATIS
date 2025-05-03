@@ -1,6 +1,6 @@
 {
   "name": "PF",
-  "id": "814a8e43-bae7-4881-810a-a5fefdfe455a",
+  "id": "68a8c6a2-4e39-48c8-90f5-7af6c33da7f3",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/PF.json",
   "updateSerial": 2025042701,
   "stations": [
@@ -17,7 +17,7 @@
       "atisFormat": {
         "observationTime": {
           "template": {
-            "text": "{time}Z",
+            "text": "{time}",
             "voice": "{time} ZULU {special}"
           }
         },
@@ -1903,8 +1903,8 @@
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH {altimeter|inhg}",
-            "voice": "ALTIMETER {altimeter}"
+            "text": "A{altimeter|hpa}",
+            "voice": "ALTIMETER {altimeter|hpa}"
           }
         },
         "transitionLevel": {
@@ -1923,8 +1923,8 @@
         "closingStatement": {
           "autoIncludeClosingStatement": true,
           "template": {
-            "text": "...ADVISE ATC THAT YOU HAVE COPY INFORMATION {letter}",
-            "voice": "...ADVISE ATC THAT YOU HAVE COPY INFORMATION {letter|word}"
+            "text": "ADVISE ATC THAT YOU HAVE COPIED INFORMATION {letter} . MDPC",
+            "voice": "ADVISE ATC THAT YOU HAVE COPIED INFORMATION {letter|word} . PUNTA CANA"
           }
         }
       },
@@ -1942,9 +1942,9 @@
         {
           "id": "aa2e6a32-ac3b-498f-bb54-42fb71d27849",
           "name": "08",
-          "airportConditions": "RUNWAY IN USE. 08",
-          "notams": "EXPECT RNAV APPROACH RWY 08",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "airportConditions": "RWY IN USE, 08.",
+          "notams": "",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
@@ -1952,9 +1952,9 @@
         {
           "id": "29b52ff4-a0b7-4c89-9431-1a82b9e8e371",
           "name": "27",
-          "airportConditions": "RUNWAY IN USE. 27",
-          "notams": "EXPECT RNAV APPROACH RWY 27",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "airportConditions": "RWY IN USE, 27.",
+          "notams": "",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
@@ -1962,9 +1962,9 @@
         {
           "id": "b16ab495-7f3f-4630-a6f1-ad2e4f6cc662",
           "name": "09",
-          "airportConditions": "RUNWAY IN USE. 09",
-          "notams": "EXPECT RNAV APPROACH RWY 09",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "airportConditions": "RWY IN USE, 09.",
+          "notams": "",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
@@ -1972,29 +1972,29 @@
         {
           "id": "64f9b329-f567-4800-a7c0-94c4d023ea85",
           "name": "26",
-          "airportConditions": "RUNWAY IN USE. 26",
-          "notams": "EXPECT RNAV APPROACH RWY 26",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "airportConditions": "RWY IN USE, 26",
+          "notams": "",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
         },
         {
           "id": "dbe7e135-0b26-4432-af40-0d61a5528d53",
-          "name": "EVENT EAST",
-          "airportConditions": "DEPARTURE RUNWAY 08. ARRIVAL RUNWAY 09.",
-          "notams": "EXPECT RNAV APPROACH RWY 09",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "name": "EAST",
+          "airportConditions": "RWY IN USE, 08 AND 09.",
+          "notams": "",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
         },
         {
           "id": "ee51b1cb-44c5-4775-8990-25a573c77961",
-          "name": "EVENT WEST",
-          "airportConditions": "DEPARTURE RUNWAY 26. ARRIVAL RUNWAY 27.",
-          "notams": "EXPECT RNAV APPROACH RWY 26",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "name": "WEST",
+          "airportConditions": "RUNWAY IN USE, 26 AND 27.",
+          "notams": "",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
@@ -4160,7 +4160,7 @@
       "atisFormat": {
         "observationTime": {
           "template": {
-            "text": "{time}Z",
+            "text": "{time}",
             "voice": "{time} ZULU {special}"
           }
         },
@@ -6046,8 +6046,8 @@
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH {altimeter|inhg}",
-            "voice": "ALTIMETER {altimeter}"
+            "text": "A{altimeter|hpa}",
+            "voice": "ALTIMETER {altimeter|hpa}"
           }
         },
         "transitionLevel": {
@@ -6066,8 +6066,8 @@
         "closingStatement": {
           "autoIncludeClosingStatement": true,
           "template": {
-            "text": "...ADVISE ATC THAT YOU HAVE COPY INFORMATION {letter}",
-            "voice": "...ADVISE ATC THAT YOU HAVE COPY INFORMATION {letter|word}"
+            "text": "ADVISE ATC THAT YOU HAVE COPIED INFORMATION {letter} . MDST",
+            "voice": "ADVISE ATC THAT YOU HAVE COPIED INFORMATION {letter|word} . CIBAO"
           }
         }
       },
@@ -6085,9 +6085,9 @@
         {
           "id": "4e458bc0-e2b7-46f5-b976-7937b1938949",
           "name": "11",
-          "airportConditions": "RUNWAY IN USE. 11",
+          "airportConditions": "RWY IN USE, 11.",
           "notams": "",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
@@ -6095,9 +6095,9 @@
         {
           "id": "efbf1d32-59c6-41fb-842f-1dc68a111846",
           "name": "29",
-          "airportConditions": "RUNWAY IN USE. 29",
+          "airportConditions": "RWY IN USE, 29.",
           "notams": "",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "template": "",
           "externalGenerator": {
             "enabled": false
           }
@@ -6151,7 +6151,7 @@
       "atisFormat": {
         "observationTime": {
           "template": {
-            "text": "{time}Z",
+            "text": "{time}",
             "voice": "{time} ZULU {special}"
           }
         },
@@ -8037,7 +8037,7 @@
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH {altimeter|inhg}",
+            "text": "A{altimeter|hpa}",
             "voice": "ALTIMETER {altimeter}"
           }
         },
@@ -8057,8 +8057,8 @@
         "closingStatement": {
           "autoIncludeClosingStatement": true,
           "template": {
-            "text": "...ADVISE ATC THAT YOU HAVE COPY INFORMATION {letter}",
-            "voice": "...ADVISE ATC THAT YOU HAVE COPY INFORMATION {letter|word}"
+            "text": "ADVISE ATC THAT YOU HAVE COPIED INFORMATION {letter|word} . MDAB",
+            "voice": "ADVISE ATC THAT YOU HAVE COPIED INFORMATION {letter|word} . ARROYO BARRIL"
           }
         }
       },
@@ -8076,9 +8076,9 @@
         {
           "id": "34c2dd01-0ade-48d5-8055-367332aae66b",
           "name": "11",
-          "airportConditions": "RUNWAY IN USE. 11",
+          "airportConditions": "RWY IN USE, 11.",
           "notams": "",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "template": "THIS IS [FACILITY] INFO [ATIS_CODE]. AT [OBS_TIME]. [ARPT_COND] [FULL_WX_STRING]. [NOTAMS]. ",
           "externalGenerator": {
             "enabled": false
           }
@@ -8088,7 +8088,7 @@
           "name": "29",
           "airportConditions": "RUNWAY IN USE. 29",
           "notams": "",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. [ARPT_COND] [NOTAMS]",
+          "template": "",
           "externalGenerator": {
             "enabled": false
           }
