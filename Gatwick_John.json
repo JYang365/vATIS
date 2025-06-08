@@ -1,8 +1,8 @@
 {
   "name": "Gatwick - John",
-  "id": "cafbe650-1213-4a3c-b611-a2d246bf1f8c",
+  "id": "71811312-82c8-4a93-a9b0-f0f1121d5493",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/Gatwick_John.json",
-  "updateSerial": 2025060801,
+  "updateSerial": 2025060802,
   "stations": [
     {
       "id": "80a38740-c5f8-4c3d-8ab1-6eebbc0d97d7",
@@ -1915,7 +1915,7 @@
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH {altimeter} ({altimeter|text})",
+            "text": "QNH {altimeter}",
             "voice": "QNH {altimeter}"
           }
         },
@@ -1951,7 +1951,7 @@
         "notams": {
           "template": {
             "text": "{notams}",
-            "voice": "NOTICES TO AIR MISSIONS: {notams}"
+            "voice": "{notams}"
           }
         },
         "closingStatement": {
@@ -1969,8 +1969,8 @@
       "useDecimalTerminology": true,
       "atisVoice": {
         "useTextToSpeech": true,
-        "voice": "Default",
-        "speechRate": 220
+        "voice": "UK Male",
+        "speechRate": 180
       },
       "presets": [
         {
@@ -1978,7 +1978,7 @@
           "name": "26L",
           "airportConditions": "@26L_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
           "notams": "@ILS APPROACH TO BE EXPECTED.",
-          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WX] [CLOSING]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -1994,7 +1994,7 @@
           "name": "08R",
           "airportConditions": "@08R_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
           "notams": "@ILS APPROACH TO BE EXPECTED.",
-          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 08R. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 08R. [ARPT_COND]. [TL]. [NOTAMS] [WX] [CLOSING]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2008,9 +2008,9 @@
         {
           "id": "0a5429f7-2275-4d92-8bbb-2a905000b1a3",
           "name": "26R",
-          "airportConditions": "@26R_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
-          "notams": "@RNAV APPROACH TO BE EXPECTED.",
-          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26R. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
+          "airportConditions": "",
+          "notams": "@ILS APPROACH TO BE EXPECTED. GATWICK DELIVERY AND GROUND ARE CLOSED. @ATC SERVICE CONTINUES ON TOWER FREQUENCY 124.230",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26R. [ARPT_COND]. [TL]. [NOTAMS] [WX] [CLOSING]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2026,7 +2026,7 @@
           "name": "08L",
           "airportConditions": "@08L_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
           "notams": "@RNAV APPROACH TO BE EXPECTED.",
-          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 08L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 08L. [ARPT_COND]. [TL]. [NOTAMS] [WX] [CLOSING]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2082,7 +2082,7 @@
         {
           "variableName": "ATC",
           "text": "ATC",
-          "voice": "AY-TEE-SEE"
+          "voice": "AY-TEE-SEE."
         },
         {
           "variableName": "EGKK",
@@ -3213,9 +3213,65 @@
           "variableName": "DEPTH_NR_NR_NR",
           "text": "DEPTH:NR/NR/NR",
           "voice": "DEPTH. NOT REPORTED, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "DEL_CLOSED",
+          "text": "GATWICK DELIVERY IS CLOSED. ATC SERVICE CONTINUES ON GROUND FREQUENCY 121.805",
+          "voice": "CLEARANCE DELIVERY FREQUENCY WUN TWO ONE DECIMAL NINER FIFE ZERO IS CLOSED, DEPARTING AIRCRAFT MAKE INITIAL CONTACT ON FREQUENCY WUN TWO WUN DECIMAL AIT ZERO FIFE"
+        },
+        {
+          "variableName": "DEL_GND_CLOSED",
+          "text": "GATWICK DELIVERY AND GROUND ARE CLOSED. ATC SERVICE CONTINUES ON TOWER FREQUENCY 124.230",
+          "voice": "GROUND MOVEMENT CONTROL AND CLEARANCE DELIVERY ARE CLOSED, @ATC SERVICE CONTINUES ON TOWER FREQUENCY WUN TWO FOWER DECIMAL TWO FOWER ZERO"
         }
       ],
-      "airportConditionDefinitions": [],
+      "airportConditionDefinitions": [
+        {
+          "text": "WINDSHEAR REPORTED",
+          "ordinal": 1,
+          "enabled": true
+        },
+        {
+          "text": "TURBULENCE MAY BE ENCOUNTERED ON THE FINAL STAGES OF THE APPROACH",
+          "ordinal": 1,
+          "enabled": true
+        },
+        {
+          "text": "AUTOMATIC LOW VIS PROCEDURES IN FORCE",
+          "ordinal": 3,
+          "enabled": true
+        },
+        {
+          "text": "INCREASED BIRD ACTIVITY WITHIN THE AERODROME BOUNDARY",
+          "ordinal": 4,
+          "enabled": true
+        },
+        {
+          "text": "LARGE FLOCKS OF BIRDS HAVE BEEN OBSERVED WITHIN THE VICINITY OF THE AERODROME",
+          "ordinal": 5,
+          "enabled": true
+        },
+        {
+          "text": "CAUTION GRASSCUTTING IN PROGRESS IN VICINITY OF RUNWAYS AND TAXIWAYS",
+          "ordinal": 6,
+          "enabled": true
+        },
+        {
+          "text": "THUNDERSTORM WARNING IN FORCE",
+          "ordinal": 7,
+          "enabled": true
+        },
+        {
+          "text": "SNOW WARNING IN FORCE",
+          "ordinal": 8,
+          "enabled": true
+        },
+        {
+          "text": "STRONG WIND WARNING IN FORCE",
+          "ordinal": 9,
+          "enabled": true
+        }
+      ],
       "notamDefinitions": [
         {
           "text": "DEPARTURE FLIGHT CREW MUST REPORT READY WITH GATWICK DELIVERY ON 121.955",
@@ -3223,18 +3279,23 @@
           "enabled": false
         },
         {
-          "text": "GATWICK DELIVERY IS CLOSED. ATC SERVICE CONTINUES ON GROUND FREQUENCY 121.805",
+          "text": "@DEL_CLOSED",
           "ordinal": 2,
           "enabled": false
         },
         {
-          "text": "GATWICK DELIVERY AND GROUND ARE CLOSED. ATC SERVICE CONTINUES ON TOWER FREQUENCY 124.230",
+          "text": "@DEL_GND_CLOSED",
           "ordinal": 3,
+          "enabled": true
+        },
+        {
+          "text": "GATWICK DELIVERY, GROUND AND TOWER ARE CLOSED. ATC SERVICE CONTINUES ON TOWER FREQUENCY 126.825",
+          "ordinal": 4,
           "enabled": false
         },
         {
           "text": "FLIGHT CREWS ARE NOT TO REQUEST REMOTE HOLDING. THIS WILL BE OFFERED ON A TACTICAL BASIS BY @ATC",
-          "ordinal": 4,
+          "ordinal": 5,
           "enabled": true
         }
       ]
