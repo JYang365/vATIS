@@ -2,7 +2,7 @@
   "name": "Gatwick - John",
   "id": "71811312-82c8-4a93-a9b0-f0f1121d5493",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/Gatwick_John.json",
-  "updateSerial": 2025060802,
+  "updateSerial": 2025060803,
   "stations": [
     {
       "id": "80a38740-c5f8-4c3d-8ab1-6eebbc0d97d7",
@@ -18,7 +18,7 @@
         "observationTime": {
           "template": {
             "text": "{time}Z",
-            "voice": "{time} ZULU {special}"
+            "voice": "{time} {special}"
           }
         },
         "surfaceWind": {
@@ -1897,7 +1897,7 @@
           }
         },
         "temperature": {
-          "usePlusPrefix": false,
+          "usePlusPrefix": true,
           "speakLeadingZero": false,
           "template": {
             "text": "{temp}",
@@ -1938,14 +1938,44 @@
         "transitionLevel": {
           "values": [
             {
-              "low": 940,
+              "low": 1050,
               "high": 1060,
-              "altitude": 50
+              "altitude": 60
+            },
+            {
+              "low": 1032,
+              "high": 1049,
+              "altitude": 65
+            },
+            {
+              "low": 1013,
+              "high": 1031,
+              "altitude": 70
+            },
+            {
+              "low": 995,
+              "high": 1012,
+              "altitude": 75
+            },
+            {
+              "low": 977,
+              "high": 994,
+              "altitude": 80
+            },
+            {
+              "low": 959,
+              "high": 976,
+              "altitude": 85
+            },
+            {
+              "low": 940,
+              "high": 958,
+              "altitude": 90
             }
           ],
           "template": {
             "text": "TRANSITION-LEVEL FL 0{trl}",
-            "voice": "TRANSITION LEVEL {trl}"
+            "voice": "TRANSITION LEVEL FLIGHT LEVEL  ZERO {trl|text}"
           }
         },
         "notams": {
