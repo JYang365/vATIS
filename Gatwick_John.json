@@ -3229,47 +3229,47 @@
         {
           "text": "WINDSHEAR REPORTED",
           "ordinal": 1,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "TURBULENCE MAY BE ENCOUNTERED ON THE FINAL STAGES OF THE APPROACH",
           "ordinal": 1,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "AUTOMATIC LOW VIS PROCEDURES IN FORCE",
           "ordinal": 3,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "INCREASED BIRD ACTIVITY WITHIN THE AERODROME BOUNDARY",
           "ordinal": 4,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "LARGE FLOCKS OF BIRDS HAVE BEEN OBSERVED WITHIN THE VICINITY OF THE AERODROME",
           "ordinal": 5,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "CAUTION GRASSCUTTING IN PROGRESS IN VICINITY OF RUNWAYS AND TAXIWAYS",
           "ordinal": 6,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "THUNDERSTORM WARNING IN FORCE",
           "ordinal": 7,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "SNOW WARNING IN FORCE",
           "ordinal": 8,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "STRONG WIND WARNING IN FORCE",
           "ordinal": 9,
-          "enabled": true
+          "enabled": false
         }
       ],
       "notamDefinitions": [
