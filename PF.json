@@ -1,7 +1,8 @@
 {
   "name": "PF",
+  "id": "f8eb3e63-8af8-4aab-adce-7143f63a9b19",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/PF.json",
-  "updateSerial": 2025060801,
+  "updateSerial": 2025060805,
   "stations": [
     {
       "id": "6a845fc7-de82-40a8-8669-4f8d72979b75",
@@ -4131,52 +4132,6 @@
           "airportConditions": "@08L_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
           "notams": "@RNAV APPROACH TO BE EXPECTED.",
           "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 08L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "39e67091-8e66-4c86-aaa7-753a6dd920d3",
-          "name": "IRL 26L",
-          "airportConditions": "@26L_RCR@665 @DRYDRYWET DEPTH:NR/NR/NR @COVERAGE_NR_NR_25",
-          "notams": "@ILS APPROACH TO BE EXPECTED",
-          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "a7f955d3-0771-4bb6-8a69-af65e0c1ca99",
-          "name": "TEST",
-          "template": "ATC",
-          "externalGenerator": {
-            "enabled": false,
-            "textUrl": "",
-            "voiceUrl": "",
-            "arrival": "",
-            "departure": "",
-            "approaches": "",
-            "remarks": ""
-          }
-        },
-        {
-          "id": "58233908-48dd-4f13-95b2-afa82fa2a349",
-          "name": "IRL 26R",
-          "airportConditions": "@RWY26L_RUNWAY_CONDITION_CODES@665 @DRYDRYWET DEPTH:NR/NR/NR @COVERAGENRNR25",
-          "notams": "@ILS APPROACH TO BE EXPECTED",
-          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
