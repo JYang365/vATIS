@@ -1,8 +1,8 @@
 {
   "name": "PF",
-  "id": "fb08ce12-1f6e-4a1b-b524-703ff9ef5c98",
+  "id": "b4b1b3f1-bbef-447c-a0f7-43f1ccc349c8",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/PF.json",
-  "updateSerial": 2025050302,
+  "updateSerial": 20250608,
   "stations": [
     {
       "id": "6a845fc7-de82-40a8-8669-4f8d72979b75",
@@ -82,6 +82,12 @@
             "text": "vis {visibility}",
             "voice": "VISIBILITY {visibility}"
           }
+        },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
         },
         "presentWeather": {
           "presentWeatherTypes": {
@@ -1827,6 +1833,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": false,
           "undeterminedLayerAltitude": {
@@ -1906,6 +1918,22 @@
             "text": "A{altimeter|hpa}",
             "voice": "ALTIMETER {altimeter|hpa}"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
@@ -2082,7 +2110,7 @@
       "notamDefinitions": []
     },
     {
-      "id": "d9918440-6b8f-4438-b0c6-85d3e98db8ee",
+      "id": "bf7100fb-0b8a-467d-a265-51f473ccf54a",
       "ordinal": 0,
       "identifier": "EGKK",
       "name": "Gatwick",
@@ -2159,6 +2187,12 @@
             "text": "{visibility}",
             "voice": "VISIBILITY {visibility}"
           }
+        },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
         },
         "presentWeather": {
           "presentWeatherTypes": {
@@ -3904,6 +3938,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": false,
           "undeterminedLayerAltitude": {
@@ -3984,6 +4024,22 @@
             "voice": "QNH {altimeter}"
           }
         },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
+        },
         "transitionLevel": {
           "values": [
             {
@@ -3993,20 +4049,20 @@
             }
           ],
           "template": {
-            "text": "TRANSITION LEVEL {trl}",
+            "text": "TRANSITION-LEVEL FL 0{trl}",
             "voice": "TRANSITION LEVEL {trl}"
           }
         },
         "notams": {
           "template": {
-            "text": "NOTAMS... {notams}",
+            "text": "{notams}",
             "voice": "NOTICES TO AIR MISSIONS: {notams}"
           }
         },
         "closingStatement": {
           "autoIncludeClosingStatement": false,
           "template": {
-            "text": "...ADVS YOU HAVE INFO {letter}",
+            "text": "ACKNOWLEDGE RECEIPT OF INFORMATION {letter} AND FOR DEPARTURES, ADVISE AIRCRAFT TYPE ON FIRST CONTACT",
             "voice": "ADVISE ON INITIAL CONTACT, YOU HAVE INFORMATION {letter|word}"
           }
         }
@@ -4019,47 +4075,117 @@
       "atisVoice": {
         "useTextToSpeech": true,
         "voice": "Default",
-        "speechRate": 180
+        "speechRate": 220
       },
       "presets": [
         {
           "id": "91bd77f5-1bf1-4434-a072-ad25b0cbec50",
           "name": "26L",
-          "airportConditions": "",
-          "notams": "ILS APPROACH TO BE EXPECTED.",
-          "template": "EGKK COM ATIS [ATIS_CODE] [OBS_TIME]. RWY IN USE ^26L. [TL]. [NOTAMS] [WX]. [ARPT_COND] ACKNOWLEDGE RECEIPT OF INFORMATION [ATIS_CODE] AND FOR DEPARTURES, ADVISE AIRCRAFT TYPE ON FIRST CONTACT",
+          "airportConditions": "@26L_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
+          "notams": "@ILS APPROACH TO BE EXPECTED.",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "3f38b911-f0c8-46c7-9851-2080d336996d",
           "name": "08R",
-          "airportConditions": "",
-          "notams": "ILS APPROACH TO BE EXPECTED.",
-          "template": "EGKK COM ATIS [ATIS_CODE] [OBS_TIME]. RWY IN USE ^08R. [TL]. [NOTAMS] [WX]. [ARPT_COND] ACKNOWLEDGE RECEIPT OF INFORMATION [ATIS_CODE] AND FOR DEPARTURES, ADVISE AIRCRAFT TYPE ON FIRST CONTACT",
+          "airportConditions": "@08R_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
+          "notams": "@ILS APPROACH TO BE EXPECTED.",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 08R. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "0a5429f7-2275-4d92-8bbb-2a905000b1a3",
           "name": "26R",
-          "airportConditions": "",
-          "notams": "RNAV APPROACH TO BE EXPECTED.",
-          "template": "EGKK COM ATIS [ATIS_CODE] [OBS_TIME]. RWY IN USE ^26R. [TL]. [NOTAMS] [WX]. [ARPT_COND] ACKNOWLEDGE RECEIPT OF INFORMATION [ATIS_CODE] AND FOR DEPARTURES, ADVISE AIRCRAFT TYPE ON FIRST CONTACT",
+          "airportConditions": "@26R_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
+          "notams": "@RNAV APPROACH TO BE EXPECTED.",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26R. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "07d40772-d21d-49ae-8c53-4de97fc26591",
           "name": "08L",
-          "airportConditions": "",
-          "notams": "RNAV APPROACH TO BE EXPECTED.",
-          "template": "EGKK ATIS [ATIS_CODE] [OBS_TIME]. RWY IN USE ^08L. [TL]. [NOTAMS] [WX]. [ARPT_COND] ACKNOWLEDGE RECEIPT OF INFORMATION [ATIS_CODE] AND FOR DEPARTURES, ADVISE AIRCRAFT TYPE ON FIRST CONTACT",
+          "airportConditions": "@08L_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
+          "notams": "@RNAV APPROACH TO BE EXPECTED.",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 08L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "39e67091-8e66-4c86-aaa7-753a6dd920d3",
+          "name": "IRL 26L",
+          "airportConditions": "@26L_RCR@665 @DRYDRYWET DEPTH:NR/NR/NR @COVERAGE_NR_NR_25",
+          "notams": "@ILS APPROACH TO BE EXPECTED",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "a7f955d3-0771-4bb6-8a69-af65e0c1ca99",
+          "name": "TEST",
+          "template": "ATC",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
+          }
+        },
+        {
+          "id": "58233908-48dd-4f13-95b2-afa82fa2a349",
+          "name": "IRL 26R",
+          "airportConditions": "@RWY26L_RUNWAY_CONDITION_CODES@665 @DRYDRYWET DEPTH:NR/NR/NR @COVERAGENRNR25",
+          "notams": "@ILS APPROACH TO BE EXPECTED",
+          "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WIND] [VIS] [CLOUDS] [TEMP]/[DEW] [PRESSURE] [RECENT_WX] [WS] [CLOSING]",
+          "externalGenerator": {
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         }
       ],
@@ -4118,10 +4244,1151 @@
           "variableName": "26L08R",
           "text": "26L/08R",
           "voice": "TWO-SIX-LEFT-ZERO-EIGHT-RIGHT"
+        },
+        {
+          "variableName": "08L_RCR",
+          "text": "RWY08L RUNWAY CONDITION CODES:",
+          "voice": "RUNWAY ZERO EIGHT LEFT RUNWAY CONDITION CODES."
+        },
+        {
+          "variableName": "08R_RCR",
+          "text": "RWY08R RUNWAY CONDITION CODES:",
+          "voice": "RUNWAY ZERO EIGHT RIGHT RUNWAY CONDITION CODES."
+        },
+        {
+          "variableName": "26L_RCR",
+          "text": "RWY26L RUNWAY CONDITION CODES:",
+          "voice": "RUNWAY TWO SIX LEFT RUNWAY CONDITION CODES."
+        },
+        {
+          "variableName": "26R_RCR",
+          "text": "RWY26R RUNWAY CONDITION CODES:",
+          "voice": "RUNWAY TWO SIX RIGHT RUNWAY CONDITION CODES."
+        },
+        {
+          "variableName": "665",
+          "text": "6/6/5",
+          "voice": "SIX, SIX, FIVE."
+        },
+        {
+          "variableName": "664",
+          "text": "6/6/4",
+          "voice": "SIX, SIX, FOUR."
+        },
+        {
+          "variableName": "663",
+          "text": "6/6/3",
+          "voice": "SIX, SIX, THREE."
+        },
+        {
+          "variableName": "662",
+          "text": "6/6/2",
+          "voice": "SIX, SIX, TWO."
+        },
+        {
+          "variableName": "661",
+          "text": "6/6/1",
+          "voice": "SIX, SIX, ONE."
+        },
+        {
+          "variableName": "660",
+          "text": "6/6/0",
+          "voice": "SIX, SIX, ZERO."
+        },
+        {
+          "variableName": "655",
+          "text": "6/5/5",
+          "voice": "SIX, FIVE, FIVE."
+        },
+        {
+          "variableName": "654",
+          "text": "6/5/4",
+          "voice": "SIX, FIVE, FOUR."
+        },
+        {
+          "variableName": "653",
+          "text": "6/5/3",
+          "voice": "SIX, FIVE, THREE."
+        },
+        {
+          "variableName": "652",
+          "text": "6/5/2",
+          "voice": "SIX, FIVE, TWO."
+        },
+        {
+          "variableName": "651",
+          "text": "6/5/1",
+          "voice": "SIX, FIVE, ONE."
+        },
+        {
+          "variableName": "650",
+          "text": "6/5/0",
+          "voice": "SIX, FIVE, ZERO."
+        },
+        {
+          "variableName": "646",
+          "text": "6/4/6",
+          "voice": "SIX, FOUR, SIX."
+        },
+        {
+          "variableName": "645",
+          "text": "6/4/5",
+          "voice": "SIX, FOUR, FIVE."
+        },
+        {
+          "variableName": "644",
+          "text": "6/4/4",
+          "voice": "SIX, FOUR, FOUR."
+        },
+        {
+          "variableName": "643",
+          "text": "6/4/3",
+          "voice": "SIX, FOUR, THREE."
+        },
+        {
+          "variableName": "642",
+          "text": "6/4/2",
+          "voice": "SIX, FOUR, TWO."
+        },
+        {
+          "variableName": "641",
+          "text": "6/4/1",
+          "voice": "SIX, FOUR, ONE."
+        },
+        {
+          "variableName": "640",
+          "text": "6/4/0",
+          "voice": "SIX, FOUR, ZERO."
+        },
+        {
+          "variableName": "633",
+          "text": "6/3/3",
+          "voice": "SIX, THREE, THREE."
+        },
+        {
+          "variableName": "632",
+          "text": "6/3/2",
+          "voice": "SIX, THREE, TWO."
+        },
+        {
+          "variableName": "631",
+          "text": "6/3/1",
+          "voice": "SIX, THREE, ONE."
+        },
+        {
+          "variableName": "630",
+          "text": "6/3/0",
+          "voice": "SIX, THREE, ZERO."
+        },
+        {
+          "variableName": "622",
+          "text": "6/2/2",
+          "voice": "SIX, TWO, TWO."
+        },
+        {
+          "variableName": "621",
+          "text": "6/2/1",
+          "voice": "SIX, TWO, ONE."
+        },
+        {
+          "variableName": "620",
+          "text": "6/2/0",
+          "voice": "SIX, TWO, ZERO."
+        },
+        {
+          "variableName": "611",
+          "text": "6/1/1",
+          "voice": "SIX, ONE, ONE."
+        },
+        {
+          "variableName": "610",
+          "text": "6/1/0",
+          "voice": "SIX, ONE, ZERO."
+        },
+        {
+          "variableName": "600",
+          "text": "6/0/0",
+          "voice": "SIX, ZERO, ZERO."
+        },
+        {
+          "variableName": "555",
+          "text": "5/5/5",
+          "voice": "FIVE, FIVE, FIVE."
+        },
+        {
+          "variableName": "554",
+          "text": "5/5/4",
+          "voice": "FIVE, FIVE, FOUR."
+        },
+        {
+          "variableName": "553",
+          "text": "5/5/3",
+          "voice": "FIVE, FIVE, THREE."
+        },
+        {
+          "variableName": "552",
+          "text": "5/5/2",
+          "voice": "FIVE, FIVE, TWO."
+        },
+        {
+          "variableName": "551",
+          "text": "5/5/1",
+          "voice": "FIVE, FIVE, ONE."
+        },
+        {
+          "variableName": "550",
+          "text": "5/5/0",
+          "voice": "FIVE, FIVE, ZERO."
+        },
+        {
+          "variableName": "544",
+          "text": "5/4/4",
+          "voice": "FIVE, FOUR, FOUR."
+        },
+        {
+          "variableName": "543",
+          "text": "5/4/3",
+          "voice": "FIVE, FOUR, THREE."
+        },
+        {
+          "variableName": "542",
+          "text": "5/4/2",
+          "voice": "FIVE, FOUR, TWO."
+        },
+        {
+          "variableName": "541",
+          "text": "5/4/1",
+          "voice": "FIVE, FOUR, ONE."
+        },
+        {
+          "variableName": "540",
+          "text": "5/4/0",
+          "voice": "FIVE, FOUR, ZERO."
+        },
+        {
+          "variableName": "533",
+          "text": "5/3/3",
+          "voice": "FIVE, THREE, THREE."
+        },
+        {
+          "variableName": "532",
+          "text": "5/3/2",
+          "voice": "FIVE, THREE, TWO."
+        },
+        {
+          "variableName": "531",
+          "text": "5/3/1",
+          "voice": "FIVE, THREE, ONE."
+        },
+        {
+          "variableName": "530",
+          "text": "5/3/0",
+          "voice": "FIVE, THREE, ZERO."
+        },
+        {
+          "variableName": "522",
+          "text": "5/2/2",
+          "voice": "FIVE, TWO, TWO."
+        },
+        {
+          "variableName": "521",
+          "text": "5/2/1",
+          "voice": "FIVE, TWO, ONE."
+        },
+        {
+          "variableName": "520",
+          "text": "5/2/0",
+          "voice": "FIVE, TWO, ZERO."
+        },
+        {
+          "variableName": "511",
+          "text": "5/1/1",
+          "voice": "FIVE, ONE, ONE."
+        },
+        {
+          "variableName": "510",
+          "text": "5/1/0",
+          "voice": "FIVE, ONE, ZERO."
+        },
+        {
+          "variableName": "500",
+          "text": "5/0/0",
+          "voice": "FIVE, ZERO, ZERO."
+        },
+        {
+          "variableName": "444",
+          "text": "4/4/4",
+          "voice": "FOUR, FOUR, FOUR."
+        },
+        {
+          "variableName": "443",
+          "text": "4/4/3",
+          "voice": "FOUR, FOUR, THREE."
+        },
+        {
+          "variableName": "442",
+          "text": "4/4/2",
+          "voice": "FOUR, FOUR, TWO."
+        },
+        {
+          "variableName": "441",
+          "text": "4/4/1",
+          "voice": "FOUR, FOUR, ONE."
+        },
+        {
+          "variableName": "440",
+          "text": "4/4/0",
+          "voice": "FOUR, FOUR, ZERO."
+        },
+        {
+          "variableName": "433",
+          "text": "4/3/3",
+          "voice": "FOUR, THREE, THREE."
+        },
+        {
+          "variableName": "432",
+          "text": "4/3/2",
+          "voice": "FOUR, THREE, TWO."
+        },
+        {
+          "variableName": "431",
+          "text": "4/3/1",
+          "voice": "FOUR, THREE, ONE."
+        },
+        {
+          "variableName": "430",
+          "text": "4/3/0",
+          "voice": "FOUR, THREE, ZERO."
+        },
+        {
+          "variableName": "422",
+          "text": "4/2/2",
+          "voice": "FOUR, TWO, TWO."
+        },
+        {
+          "variableName": "421",
+          "text": "4/2/1",
+          "voice": "FOUR, TWO, ONE."
+        },
+        {
+          "variableName": "420",
+          "text": "4/2/0",
+          "voice": "FOUR, TWO, ZERO."
+        },
+        {
+          "variableName": "411",
+          "text": "4/1/1",
+          "voice": "FOUR, ONE, ONE."
+        },
+        {
+          "variableName": "410",
+          "text": "4/1/0",
+          "voice": "FOUR, ONE, ZERO."
+        },
+        {
+          "variableName": "400",
+          "text": "4/0/0",
+          "voice": "FOUR, ZERO, ZERO."
+        },
+        {
+          "variableName": "333",
+          "text": "3/3/3",
+          "voice": "THREE, THREE, THREE."
+        },
+        {
+          "variableName": "332",
+          "text": "3/3/2",
+          "voice": "THREE, THREE, TWO."
+        },
+        {
+          "variableName": "331",
+          "text": "3/3/1",
+          "voice": "THREE, THREE, ONE."
+        },
+        {
+          "variableName": "330",
+          "text": "3/3/0",
+          "voice": "THREE, THREE, ZERO."
+        },
+        {
+          "variableName": "322",
+          "text": "3/2/2",
+          "voice": "THREE, TWO, TWO."
+        },
+        {
+          "variableName": "321",
+          "text": "3/2/1",
+          "voice": "THREE, TWO, ONE."
+        },
+        {
+          "variableName": "320",
+          "text": "3/2/0",
+          "voice": "THREE, TWO, ZERO."
+        },
+        {
+          "variableName": "311",
+          "text": "3/1/1",
+          "voice": "THREE, ONE, ONE."
+        },
+        {
+          "variableName": "310",
+          "text": "3/1/0",
+          "voice": "THREE, ONE, ZERO."
+        },
+        {
+          "variableName": "300",
+          "text": "3/0/0",
+          "voice": "THREE, ZERO, ZERO."
+        },
+        {
+          "variableName": "222",
+          "text": "2/2/2",
+          "voice": "TWO, TWO, TWO."
+        },
+        {
+          "variableName": "221",
+          "text": "2/2/1",
+          "voice": "TWO, TWO, ONE."
+        },
+        {
+          "variableName": "220",
+          "text": "2/2/0",
+          "voice": "TWO, TWO, ZERO."
+        },
+        {
+          "variableName": "211",
+          "text": "2/1/1",
+          "voice": "TWO, ONE, ONE."
+        },
+        {
+          "variableName": "210",
+          "text": "2/1/0",
+          "voice": "TWO, ONE, ZERO."
+        },
+        {
+          "variableName": "200",
+          "text": "2/0/0",
+          "voice": "TWO, ZERO, ZERO."
+        },
+        {
+          "variableName": "111",
+          "text": "1/1/1",
+          "voice": "ONE, ONE, ONE."
+        },
+        {
+          "variableName": "110",
+          "text": "1/1/0",
+          "voice": "ONE, ONE, ZERO."
+        },
+        {
+          "variableName": "100",
+          "text": "1/0/0",
+          "voice": "ONE, ZERO, ZERO."
+        },
+        {
+          "variableName": "000",
+          "text": "0/0/0",
+          "voice": "ZERO, ZERO, ZERO."
+        },
+        {
+          "variableName": "DRYDRYDRY",
+          "text": "DRY/DRY/DRY",
+          "voice": "DRY, DRY, DRY."
+        },
+        {
+          "variableName": "DRYDRYWET",
+          "text": "DRY/DRY/WET",
+          "voice": "DRY, DRY, WET."
+        },
+        {
+          "variableName": "DRYWETDRY",
+          "text": "DRY/WET/DRY",
+          "voice": "DRY, WET, DRY."
+        },
+        {
+          "variableName": "DRYWETWET",
+          "text": "DRY/WET/WET",
+          "voice": "DRY, WET, WET."
+        },
+        {
+          "variableName": "WETDRYDRY",
+          "text": "WET/DRY/DRY",
+          "voice": "WET, DRY, DRY."
+        },
+        {
+          "variableName": "WETDRYWET",
+          "text": "WET/DRY/WET",
+          "voice": "WET, DRY, WET."
+        },
+        {
+          "variableName": "WETWETDRY",
+          "text": "WET/WET/DRY",
+          "voice": "WET, WET, DRY."
+        },
+        {
+          "variableName": "WETWETWET",
+          "text": "WET/WET/WET",
+          "voice": "WET, WET, WET."
+        },
+        {
+          "variableName": "DEPTHNRNRNR",
+          "text": "DEPTH:NR/NR/NR",
+          "voice": "DEPTH. NOT REPORTED, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_100_100_100",
+          "text": "COVERAGE:100%/100%/100%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, ONE HUNDRED PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_100_75",
+          "text": "COVERAGE:100%/100%/75%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_100_50",
+          "text": "COVERAGE:100%/100%/50%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, ONE HUNDRED PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_100_25",
+          "text": "COVERAGE:100%/100%/25%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, ONE HUNDRED PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_100_NR",
+          "text": "COVERAGE:100%/100%/NR",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, ONE HUNDRED PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_100_75_100",
+          "text": "COVERAGE:100%/75%/100%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_75_75",
+          "text": "COVERAGE:100%/75%/75%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_75_50",
+          "text": "COVERAGE:100%/75%/50%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_75_25",
+          "text": "COVERAGE:100%/75%/25%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_75_NR",
+          "text": "COVERAGE:100%/75%/NR",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_100_50_100",
+          "text": "COVERAGE:100%/50%/100%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, FIFTY PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_50_75",
+          "text": "COVERAGE:100%/50%/75%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, FIFTY PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_50_50",
+          "text": "COVERAGE:100%/50%/50%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, FIFTY PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_50_25",
+          "text": "COVERAGE:100%/50%/25%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, FIFTY PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_50_NR",
+          "text": "COVERAGE:100%/50%/NR",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, FIFTY PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_100_25_100",
+          "text": "COVERAGE:100%/25%/100%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, TWENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_25_75",
+          "text": "COVERAGE:100%/25%/75%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_25_50",
+          "text": "COVERAGE:100%/25%/50%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, TWENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_25_25",
+          "text": "COVERAGE:100%/25%/25%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, TWENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_25_NR",
+          "text": "COVERAGE:100%/25%/NR",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, TWENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_100_NR_100",
+          "text": "COVERAGE:100%/NR/100%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, NOT REPORTED, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_NR_75",
+          "text": "COVERAGE:100%/NR/75%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, NOT REPORTED, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_NR_50",
+          "text": "COVERAGE:100%/NR/50%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, NOT REPORTED, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_NR_25",
+          "text": "COVERAGE:100%/NR/25%",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, NOT REPORTED, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_100_NR_NR",
+          "text": "COVERAGE:100%/NR/NR",
+          "voice": "COVERAGE. ONE HUNDRED PERCENT, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_75_100_100",
+          "text": "COVERAGE:75%/100%/100%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_100_75",
+          "text": "COVERAGE:75%/100%/75%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_100_50",
+          "text": "COVERAGE:75%/100%/50%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_100_25",
+          "text": "COVERAGE:75%/100%/25%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_100_NR",
+          "text": "COVERAGE:75%/100%/NR",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_75_75_100",
+          "text": "COVERAGE:75%/75%/100%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_75_75",
+          "text": "COVERAGE:75%/75%/75%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_75_50",
+          "text": "COVERAGE:75%/75%/50%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_75_25",
+          "text": "COVERAGE:75%/75%/25%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_75_NR",
+          "text": "COVERAGE:75%/75%/NR",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_75_50_100",
+          "text": "COVERAGE:75%/50%/100%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, FIFTY PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_50_75",
+          "text": "COVERAGE:75%/50%/75%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, FIFTY PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_50_50",
+          "text": "COVERAGE:75%/50%/50%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, FIFTY PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_50_25",
+          "text": "COVERAGE:75%/50%/25%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, FIFTY PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_50_NR",
+          "text": "COVERAGE:75%/50%/NR",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, FIFTY PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_75_25_100",
+          "text": "COVERAGE:75%/25%/100%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_25_75",
+          "text": "COVERAGE:75%/25%/75%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_25_50",
+          "text": "COVERAGE:75%/25%/50%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_25_25",
+          "text": "COVERAGE:75%/25%/25%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_25_NR",
+          "text": "COVERAGE:75%/25%/NR",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_75_NR_100",
+          "text": "COVERAGE:75%/NR/100%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, NOT REPORTED, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_NR_75",
+          "text": "COVERAGE:75%/NR/75%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, NOT REPORTED, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_NR_50",
+          "text": "COVERAGE:75%/NR/50%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, NOT REPORTED, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_NR_25",
+          "text": "COVERAGE:75%/NR/25%",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, NOT REPORTED, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_75_NR_NR",
+          "text": "COVERAGE:75%/NR/NR",
+          "voice": "COVERAGE. SEVENTY FIVE PERCENT, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_50_100_100",
+          "text": "COVERAGE:50%/100%/100%",
+          "voice": "COVERAGE. FIFTY PERCENT, ONE HUNDRED PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_100_75",
+          "text": "COVERAGE:50%/100%/75%",
+          "voice": "COVERAGE. FIFTY PERCENT, ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_100_50",
+          "text": "COVERAGE:50%/100%/50%",
+          "voice": "COVERAGE. FIFTY PERCENT, ONE HUNDRED PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_100_25",
+          "text": "COVERAGE:50%/100%/25%",
+          "voice": "COVERAGE. FIFTY PERCENT, ONE HUNDRED PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_100_NR",
+          "text": "COVERAGE:50%/100%/NR",
+          "voice": "COVERAGE. FIFTY PERCENT, ONE HUNDRED PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_50_75_100",
+          "text": "COVERAGE:50%/75%/100%",
+          "voice": "COVERAGE. FIFTY PERCENT, SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_75_75",
+          "text": "COVERAGE:50%/75%/75%",
+          "voice": "COVERAGE. FIFTY PERCENT, SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_75_50",
+          "text": "COVERAGE:50%/75%/50%",
+          "voice": "COVERAGE. FIFTY PERCENT, SEVENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_75_25",
+          "text": "COVERAGE:50%/75%/25%",
+          "voice": "COVERAGE. FIFTY PERCENT, SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_75_NR",
+          "text": "COVERAGE:50%/75%/NR",
+          "voice": "COVERAGE. FIFTY PERCENT, SEVENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_50_50_100",
+          "text": "COVERAGE:50%/50%/100%",
+          "voice": "COVERAGE. FIFTY PERCENT, FIFTY PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_50_75",
+          "text": "COVERAGE:50%/50%/75%",
+          "voice": "COVERAGE. FIFTY PERCENT, FIFTY PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_50_50",
+          "text": "COVERAGE:50%/50%/50%",
+          "voice": "COVERAGE. FIFTY PERCENT, FIFTY PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_50_25",
+          "text": "COVERAGE:50%/50%/25%",
+          "voice": "COVERAGE. FIFTY PERCENT, FIFTY PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_50_NR",
+          "text": "COVERAGE:50%/50%/NR",
+          "voice": "COVERAGE. FIFTY PERCENT, FIFTY PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_50_25_100",
+          "text": "COVERAGE:50%/25%/100%",
+          "voice": "COVERAGE. FIFTY PERCENT, TWENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_25_75",
+          "text": "COVERAGE:50%/25%/75%",
+          "voice": "COVERAGE. FIFTY PERCENT, TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_25_50",
+          "text": "COVERAGE:50%/25%/50%",
+          "voice": "COVERAGE. FIFTY PERCENT, TWENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_25_25",
+          "text": "COVERAGE:50%/25%/25%",
+          "voice": "COVERAGE. FIFTY PERCENT, TWENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_25_NR",
+          "text": "COVERAGE:50%/25%/NR",
+          "voice": "COVERAGE. FIFTY PERCENT, TWENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_50_NR_100",
+          "text": "COVERAGE:50%/NR/100%",
+          "voice": "COVERAGE. FIFTY PERCENT, NOT REPORTED, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_NR_75",
+          "text": "COVERAGE:50%/NR/75%",
+          "voice": "COVERAGE. FIFTY PERCENT, NOT REPORTED, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_NR_50",
+          "text": "COVERAGE:50%/NR/50%",
+          "voice": "COVERAGE. FIFTY PERCENT, NOT REPORTED, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_NR_25",
+          "text": "COVERAGE:50%/NR/25%",
+          "voice": "COVERAGE. FIFTY PERCENT, NOT REPORTED, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_50_NR_NR",
+          "text": "COVERAGE:50%/NR/NR",
+          "voice": "COVERAGE. FIFTY PERCENT, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_25_100_100",
+          "text": "COVERAGE:25%/100%/100%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, ONE HUNDRED PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_100_75",
+          "text": "COVERAGE:25%/100%/75%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_100_50",
+          "text": "COVERAGE:25%/100%/50%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, ONE HUNDRED PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_100_25",
+          "text": "COVERAGE:25%/100%/25%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, ONE HUNDRED PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_100_NR",
+          "text": "COVERAGE:25%/100%/NR",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, ONE HUNDRED PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_25_75_100",
+          "text": "COVERAGE:25%/75%/100%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_75_75",
+          "text": "COVERAGE:25%/75%/75%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_75_50",
+          "text": "COVERAGE:25%/75%/50%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_75_25",
+          "text": "COVERAGE:25%/75%/25%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_75_NR",
+          "text": "COVERAGE:25%/75%/NR",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_25_50_100",
+          "text": "COVERAGE:25%/50%/100%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, FIFTY PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_50_75",
+          "text": "COVERAGE:25%/50%/75%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, FIFTY PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_50_50",
+          "text": "COVERAGE:25%/50%/50%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, FIFTY PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_50_25",
+          "text": "COVERAGE:25%/50%/25%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, FIFTY PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_50_NR",
+          "text": "COVERAGE:25%/50%/NR",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, FIFTY PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_25_25_100",
+          "text": "COVERAGE:25%/25%/100%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, TWENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_25_75",
+          "text": "COVERAGE:25%/25%/75%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_25_50",
+          "text": "COVERAGE:25%/25%/50%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, TWENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_25_25",
+          "text": "COVERAGE:25%/25%/25%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, TWENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_25_NR",
+          "text": "COVERAGE:25%/25%/NR",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, TWENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_25_NR_100",
+          "text": "COVERAGE:25%/NR/100%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, NOT REPORTED, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_NR_75",
+          "text": "COVERAGE:25%/NR/75%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, NOT REPORTED, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_NR_50",
+          "text": "COVERAGE:25%/NR/50%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, NOT REPORTED, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_NR_25",
+          "text": "COVERAGE:25%/NR/25%",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, NOT REPORTED, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_25_NR_NR",
+          "text": "COVERAGE:25%/NR/NR",
+          "voice": "COVERAGE. TWENTY FIVE PERCENT, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_NR_100_100",
+          "text": "COVERAGE:NR/100%/100%",
+          "voice": "COVERAGE. NOT REPORTED, ONE HUNDRED PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_100_75",
+          "text": "COVERAGE:NR/100%/75%",
+          "voice": "COVERAGE. NOT REPORTED, ONE HUNDRED PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_100_50",
+          "text": "COVERAGE:NR/100%/50%",
+          "voice": "COVERAGE. NOT REPORTED, ONE HUNDRED PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_100_25",
+          "text": "COVERAGE:NR/100%/25%",
+          "voice": "COVERAGE. NOT REPORTED, ONE HUNDRED PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_100_NR",
+          "text": "COVERAGE:NR/100%/NR",
+          "voice": "COVERAGE. NOT REPORTED, ONE HUNDRED PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_NR_75_100",
+          "text": "COVERAGE:NR/75%/100%",
+          "voice": "COVERAGE. NOT REPORTED, SEVENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_75_75",
+          "text": "COVERAGE:NR/75%/75%",
+          "voice": "COVERAGE. NOT REPORTED, SEVENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_75_50",
+          "text": "COVERAGE:NR/75%/50%",
+          "voice": "COVERAGE. NOT REPORTED, SEVENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_75_25",
+          "text": "COVERAGE:NR/75%/25%",
+          "voice": "COVERAGE. NOT REPORTED, SEVENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_75_NR",
+          "text": "COVERAGE:NR/75%/NR",
+          "voice": "COVERAGE. NOT REPORTED, SEVENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_NR_50_100",
+          "text": "COVERAGE:NR/50%/100%",
+          "voice": "COVERAGE. NOT REPORTED, FIFTY PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_50_75",
+          "text": "COVERAGE:NR/50%/75%",
+          "voice": "COVERAGE. NOT REPORTED, FIFTY PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_50_50",
+          "text": "COVERAGE:NR/50%/50%",
+          "voice": "COVERAGE. NOT REPORTED, FIFTY PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_50_25",
+          "text": "COVERAGE:NR/50%/25%",
+          "voice": "COVERAGE. NOT REPORTED, FIFTY PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_50_NR",
+          "text": "COVERAGE:NR/50%/NR",
+          "voice": "COVERAGE. NOT REPORTED, FIFTY PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_NR_25_100",
+          "text": "COVERAGE:NR/25%/100%",
+          "voice": "COVERAGE. NOT REPORTED, TWENTY FIVE PERCENT, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_25_75",
+          "text": "COVERAGE:NR/25%/75%",
+          "voice": "COVERAGE. NOT REPORTED, TWENTY FIVE PERCENT, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_25_50",
+          "text": "COVERAGE:NR/25%/50%",
+          "voice": "COVERAGE. NOT REPORTED, TWENTY FIVE PERCENT, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_25_25",
+          "text": "COVERAGE:NR/25%/25%",
+          "voice": "COVERAGE. NOT REPORTED, TWENTY FIVE PERCENT, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_25_NR",
+          "text": "COVERAGE:NR/25%/NR",
+          "voice": "COVERAGE. NOT REPORTED, TWENTY FIVE PERCENT, NOT REPORTED."
+        },
+        {
+          "variableName": "COVERAGE_NR_NR_100",
+          "text": "COVERAGE:NR/NR/100%",
+          "voice": "COVERAGE. NOT REPORTED, NOT REPORTED, ONE HUNDRED PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_NR_75",
+          "text": "COVERAGE:NR/NR/75%",
+          "voice": "COVERAGE. NOT REPORTED, NOT REPORTED, SEVENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_NR_50",
+          "text": "COVERAGE:NR/NR/50%",
+          "voice": "COVERAGE. NOT REPORTED, NOT REPORTED, FIFTY PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_NR_25",
+          "text": "COVERAGE:NR/NR/25%",
+          "voice": "COVERAGE. NOT REPORTED, NOT REPORTED, TWENTY FIVE PERCENT."
+        },
+        {
+          "variableName": "COVERAGE_NR_NR_NR",
+          "text": "COVERAGE:NR/NR/NR",
+          "voice": "COVERAGE. NOT REPORTED, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "DEPTH_NR_NR_NR",
+          "text": "DEPTH:NR/NR/NR",
+          "voice": "DEPTH. NOT REPORTED, NOT REPORTED, NOT REPORTED."
         }
       ],
       "airportConditionDefinitions": [],
-      "notamDefinitions": []
+      "notamDefinitions": [
+        {
+          "text": "DEPARTURE FLIGHT CREW MUST REPORT READY WITH GATWICK DELIVERY ON 121.955",
+          "ordinal": 1,
+          "enabled": false
+        },
+        {
+          "text": "GATWICK DELIVERY IS CLOSED. ATC SERVICE CONTINUES ON GROUND FREQUENCY 121.805",
+          "ordinal": 2,
+          "enabled": false
+        },
+        {
+          "text": "GATWICK DELIVERY AND GROUND ARE CLOSED. ATC SERVICE CONTINUES ON TOWER FREQUENCY 124.230",
+          "ordinal": 3,
+          "enabled": false
+        },
+        {
+          "text": "FLIGHT CREWS ARE NOT TO REQUEST REMOTE HOLDING. THIS WILL BE OFFERED ON A TACTICAL BASIS BY @ATC",
+          "ordinal": 4,
+          "enabled": true
+        }
+      ]
     },
     {
       "id": "bd389838-da76-49c0-8e16-2da7fd44ff01",
@@ -4201,6 +5468,12 @@
             "text": "vis {visibility}",
             "voice": "VISIBILITY {visibility}"
           }
+        },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
         },
         "presentWeather": {
           "presentWeatherTypes": {
@@ -5946,6 +7219,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": false,
           "undeterminedLayerAltitude": {
@@ -6025,6 +7304,22 @@
             "text": "A{altimeter|hpa}",
             "voice": "ALTIMETER {altimeter|hpa}"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
@@ -6199,6 +7494,12 @@
             "voice": "VISIBILITY {visibility}"
           }
         },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
+        },
         "presentWeather": {
           "presentWeatherTypes": {
             "-DS": {
@@ -7943,6 +9244,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": false,
           "undeterminedLayerAltitude": {
@@ -8022,6 +9329,22 @@
             "text": "A{altimeter|hpa}",
             "voice": "ALTIMETER {altimeter}"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
@@ -8195,6 +9518,12 @@
             "voice": "VISIBILITY {visibility}"
           }
         },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
+        },
         "presentWeather": {
           "presentWeatherTypes": {
             "-DS": {
@@ -9939,6 +11268,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": true,
           "undeterminedLayerAltitude": {
@@ -10018,6 +11353,22 @@
             "text": "QNH {altimeter}HPA",
             "voice": "QNH {altimeter}"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
@@ -10169,7 +11520,7 @@
       "atisFormat": {
         "observationTime": {
           "template": {
-            "text": "{time}",
+            "text": "{time}Z",
             "voice": "{time} ZULU {special}"
           }
         },
@@ -10187,13 +11538,13 @@
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "text": "WIND {wind_dir} DEG {wind_spd} KT MAX {wind_gust} KT",
               "voice": "WIND {wind_dir} AT {wind_spd} GUSTS {wind_gust}"
             }
           },
           "variable": {
             "template": {
-              "text": "VRB{wind_spd}KT",
+              "text": "WIND {wind_dir} {wind_speed} KT",
               "voice": "WIND VARIABLE AT {wind_spd}"
             }
           },
@@ -10205,7 +11556,7 @@
           },
           "variableDirection": {
             "template": {
-              "text": "BTN {wind_vmin} AND {wind_vmax} DEG",
+              "text": "WIND BTN {wind_vmin} AND {wind_vmax} DEG",
               "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}"
             }
           },
@@ -10227,13 +11578,19 @@
           "west": "to the west",
           "northWest": "to the north-west",
           "unlimitedVisibilityVoice": "visibility 10 kilometers or more",
-          "unlimitedVisibilityText": "VIS 10KM",
+          "unlimitedVisibilityText": "10KM OR MORE",
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
           "template": {
-            "text": "{visibility}",
+            "text": "VIS {visibility}",
             "voice": "VISIBILITY {visibility}"
           }
+        },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
         },
         "presentWeather": {
           "presentWeatherTypes": {
@@ -11979,8 +13336,15 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": true,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC",
+            "SCT"
+          ],
           "convertToMetric": false,
-          "isAltitudeInHundreds": false,
+          "isAltitudeInHundreds": true,
           "undeterminedLayerAltitude": {
             "text": "undetermined",
             "voice": "undetermined"
@@ -11991,23 +13355,23 @@
           },
           "types": {
             "FEW": {
-              "text": "FEW{altitude}",
+              "text": "FEW {altitude} FT",
               "voice": "few clouds at {altitude}"
             },
             "SCT": {
-              "text": "SCT{altitude}{convective}",
+              "text": "SCT {altitude}{convective} FT",
               "voice": "{altitude} scattered {convective}"
             },
             "BKN": {
-              "text": "BKN{altitude}{convective}",
+              "text": "BKN {altitude}{convective} FT",
               "voice": "{altitude} broken {convective}"
             },
             "OVC": {
-              "text": "OVC{altitude}{convective}",
+              "text": "OVC {altitude}{convective} FT",
               "voice": "{altitude} overcast {convective}"
             },
             "VV": {
-              "text": "VV{altitude}",
+              "text": "VV {altitude} FT",
               "voice": "indefinite ceiling {altitude}"
             },
             "NSC": {
@@ -12032,32 +13396,48 @@
             "TCU": "towering cumulus"
           },
           "template": {
-            "text": "{clouds}",
+            "text": "CLD {clouds}",
             "voice": "{clouds}"
           }
         },
         "temperature": {
-          "usePlusPrefix": false,
-          "speakLeadingZero": false,
+          "usePlusPrefix": true,
+          "speakLeadingZero": true,
           "template": {
-            "text": "{temp}",
+            "text": "T{temp}",
             "voice": "TEMPERATURE {temp}"
           }
         },
         "dewpoint": {
-          "usePlusPrefix": false,
+          "usePlusPrefix": true,
           "speakLeadingZero": false,
           "template": {
-            "text": "{dewpoint}",
+            "text": "DP{dewpoint}",
             "voice": "DEWPOINT {dewpoint}"
           }
         },
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "Q{altimeter}",
-            "voice": "QNH {altimeter}"
+            "text": "QNH {altimeter|hpa} MB EQST {altimeter|inhg} HG",
+            "voice": "QNH {altimeter} MILL-YOUR-BAAR ALTIMETER {altimeter|inhg} INCHES OF MERCURY"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
@@ -12068,21 +13448,21 @@
             }
           ],
           "template": {
-            "text": "TRANSITION LEVEL {trl}",
-            "voice": "TRANSITION LEVEL {trl}"
+            "text": "TRL FL0{trl}",
+            "voice": "TRANSITION LEVEL FLIGHT LEVEL {trl}"
           }
         },
         "notams": {
           "template": {
-            "text": "NOTAMS... {notams}",
-            "voice": "NOTICES TO AIR MISSIONS: {notams}"
+            "text": "{notams}",
+            "voice": "{notams}"
           }
         },
         "closingStatement": {
           "autoIncludeClosingStatement": true,
           "template": {
-            "text": "...ADVS YOU HAVE INFO {letter}",
-            "voice": "ADVISE ON INITIAL CONTACT, YOU HAVE INFORMATION {letter|word}"
+            "text": "CONFIRM ATIS {letter}",
+            "voice": ", CONFIRM ATIS {letter|word}"
           }
         }
       },
@@ -12098,95 +13478,94 @@
       },
       "presets": [
         {
-          "id": "9e069ef7-33bc-433f-8e79-2a8607e3963f",
-          "ordinal": 1,
-          "name": "03",
-          "airportConditions": "DEPARTURE RWY 03 RIGHT. ARRIVAL RWY 03 LEFT. EXPECT ILS Z APPROACH RWY 03 LEFT.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
-          "externalGenerator": {
-            "enabled": false
-          }
-        },
-        {
-          "id": "6c1b902f-4d96-44ab-9aae-484aa1c1d61b",
-          "ordinal": 2,
-          "name": "21",
-          "airportConditions": "DEPARTURE RWY 21 LEFT. ARRIVAL RWY 21 RIGHT. EXPECT ILS Z APPROACH RWY 21 RIGHT.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
-          "externalGenerator": {
-            "enabled": false
-          }
-        },
-        {
-          "id": "339aad5e-6741-4a50-8697-e132ed04cdd1",
-          "ordinal": 2,
-          "name": "IRL 03",
-          "template": "[FACILITY] INFO [ATIS_CODE] TIME [OBS_TIME] [ARPT_COND] TRL [TL] [WIND] . [VIS] [CLOUDS] [TEMP] [DEW] [PRESSURE] [TREND] [RECENT_WX] . [NOTAMS] [CLOSING]",
-          "externalGenerator": {
-            "enabled": false
-          }
-        },
-        {
           "id": "5bc5e143-0a4e-4a94-8637-32beb1483d94",
           "ordinal": 4,
           "name": "03 SINGLE",
-          "airportConditions": "DEPARTURE RWY 03 LEFT. ARRIVAL RWY 03 LEFT. EXPECT ILS Z APPROACH RWY 03 LEFT.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
+          "airportConditions": "EXPECT ILS Z APCH RWY 03L RWY IN USE 03L [TL]",
+          "notams": "MAINTAIN 190 KNOTS INDICATED AT FALPU AND 160 KNOTS INDICATED UNTIL 4 DME. ADVISE ATC IF UNABLE",
+          "template": "[FACILITY] ATIS [ATIS_CODE] [TIME] [ARPT_COND] [WIND] . [VIS] [CLOUDS] [TEMP] [DEW] [PRESSURE] [TREND] [RECENT_WX] [WS] [NOTAMS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "1e1e3526-4b0e-4905-a278-8253cc5e0044",
           "ordinal": 5,
           "name": "21 SINGLE",
-          "airportConditions": "DEPARTURE RWY 21 RIGHT. ARRIVAL RWY 21 RIGHT. EXPECT ILS Z APPROACH RWY 21 RIGHT.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
+          "airportConditions": "EXPECT ILS Z APCH RWY 21R RWY IN USE 21R [TL]",
+          "notams": "MAINTAIN 190 KNOTS INDICATED AT 9 DME AND 160 KNOTS INDICATED UNTIL 4 DME. ADVISE ATC IF UNABLE",
+          "template": "[FACILITY] ATIS [ATIS_CODE] [TIME] [ARPT_COND] [WIND] . [VIS] [CLOUDS] [TEMP] [DEW] [PRESSURE] [TREND] [RECENT_WX] [WS] [NOTAMS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
-          "id": "4ad0c7ff-52ca-4e21-8609-33841dcf4264",
-          "ordinal": 6,
+          "id": "93acd564-4456-44f8-9ea1-17c10533b9fa",
+          "ordinal": 8,
           "name": "03 DUAL",
-          "airportConditions": "DEPARTURE RWY 03 LEFT AND 03 RIGHT. ARRIVAL RWY 03 LEFT. EXPECT ILS Z APPROACH RWY 03 LEFT.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
+          "airportConditions": "EXPECT ILS Z APCH RWY @03L RWY IN USE @03L AND @03R [TL]",
+          "notams": "MAINTAIN 190 KNOTS INDICATED AT FALPU AND 160 KNOTS INDICATED UNTIL 4 DME. ADVISE ATC IF UNABLE",
+          "template": "[FACILITY] ATIS [ATIS_CODE] [TIME] [ARPT_COND] [WIND] . [VIS] [CLOUDS] [TEMP] [DEW] [PRESSURE] [TREND] [RECENT_WX] [WS] [NOTAMS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
-          "id": "db9b3a37-faf2-4df5-aeec-1378bd884fb0",
-          "ordinal": 7,
+          "id": "71480ad7-f41f-44e4-85ef-a774d07c29ff",
+          "ordinal": 9,
           "name": "21 DUAL",
-          "airportConditions": "DEPARTURE RWY 21 RIGHT AND 21 LEFT. ARRIVAL RWY 21 RIGHT. EXPECT ILS Z APPROACH RWY 21 RIGHT.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
+          "airportConditions": "EXPECT ILS Z APCH RWY 21R RWY IN USE 21L AND 21R [TL]",
+          "notams": "MAINTAIN 190 KNOTS INDICATED AT 9 DME AND 160 KNOTS INDICATED UNTIL 4 DME. ADVISE ATC IF UNABLE",
+          "template": "[FACILITY] ATIS [ATIS_CODE] [TIME] [ARPT_COND] [WIND] . [VIS] [CLOUDS] [TEMP] [DEW] [PRESSURE] [TREND] [RECENT_WX] [WS] [NOTAMS] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         }
       ],
       "contractions": [
         {
-          "variableName": "W",
-          "text": "W",
-          "voice": "WHISKEY"
+          "variableName": "03L",
+          "text": "03L",
+          "voice": "ZERO THREE LEFT"
         },
         {
-          "variableName": "E",
-          "text": "E",
-          "voice": "ECHO"
+          "variableName": "03R",
+          "text": "03R",
+          "voice": "ZERO THREE RIGHT"
         },
         {
-          "variableName": "N",
-          "text": "N",
-          "voice": "NOVEMBER"
+          "variableName": "21L",
+          "text": "21L",
+          "voice": "TWO ONE LEFT"
         },
         {
-          "variableName": "L",
-          "text": "L",
-          "voice": "LIMA"
+          "variableName": "21R",
+          "text": "21R",
+          "voice": "TWO ONE RIGHT"
         },
         {
           "variableName": "R_NAV",
@@ -12197,11 +13576,6 @@
           "variableName": "Z",
           "text": "Z",
           "voice": "ZULU"
-        },
-        {
-          "variableName": "UTC",
-          "text": "UTC",
-          "voice": "YOU-T-SEE"
         },
         {
           "variableName": "Y",
@@ -12217,9 +13591,70 @@
           "variableName": "RWYS",
           "text": "RWYS",
           "voice": "RUNWAYS"
+        },
+        {
+          "variableName": "ILS",
+          "text": "ILS",
+          "voice": "AYE-ELL-ESS"
+        },
+        {
+          "variableName": "SGL",
+          "text": "SGL",
+          "voice": "SIGNAL"
+        },
+        {
+          "variableName": "ACFT",
+          "text": "ACFT",
+          "voice": "AIRCRAFT"
+        },
+        {
+          "variableName": "XNG",
+          "text": "XNG",
+          "voice": "EXITING"
+        },
+        {
+          "variableName": "ACT",
+          "text": "ACT",
+          "voice": "ACTIVE"
+        },
+        {
+          "variableName": "CLR",
+          "text": "CLR",
+          "voice": "CLEARANCE"
+        },
+        {
+          "variableName": "KT",
+          "text": "KT",
+          "voice": "KNOTS"
+        },
+        {
+          "variableName": "MB",
+          "text": "MB",
+          "voice": "MILL-EE-BAR"
+        },
+        {
+          "variableName": "HG",
+          "text": "HG",
+          "voice": "INCHES OF MERCURY"
+        },
+        {
+          "variableName": "FALPU",
+          "text": "FALPU",
+          "voice": "FAL-POO"
         }
       ],
-      "airportConditionDefinitions": [],
+      "airportConditionDefinitions": [
+        {
+          "text": "POSSIBLE ILS SGL INTERFERENCES DUE TO ACFT XNG ACT RWY, CLR FREQ 121.700",
+          "ordinal": 1,
+          "enabled": true
+        },
+        {
+          "text": "POSSIBLE ILS SGL INTERFERENCES DUE TO ACFT XNG ACT RWY, CLR FREQ 125.000",
+          "ordinal": 2,
+          "enabled": false
+        }
+      ],
       "notamDefinitions": []
     },
     {
@@ -12303,6 +13738,12 @@
             "text": "{visibility}",
             "voice": "VISIBILITY {visibility}"
           }
+        },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
         },
         "presentWeather": {
           "presentWeatherTypes": {
@@ -14048,6 +15489,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": false,
           "undeterminedLayerAltitude": {
@@ -14127,6 +15574,22 @@
             "text": "QNH{altimeter}",
             "voice": "QNH {altimeter}"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
@@ -14332,6 +15795,12 @@
             "voice": "VISIBILITY {visibility}"
           }
         },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
+        },
         "presentWeather": {
           "presentWeatherTypes": {
             "-DS": {
@@ -16076,6 +17545,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": true,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": false,
           "undeterminedLayerAltitude": {
@@ -16155,6 +17630,22 @@
             "text": "QNH {altimeter} ({altimeter|text})",
             "voice": "QNH {altimeter}"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
@@ -16292,2008 +17783,6 @@
       "notamDefinitions": []
     },
     {
-      "id": "40a22b9a-1c73-400e-a9a4-91bb2768bbf9",
-      "ordinal": 0,
-      "identifier": "LYTV",
-      "name": "Tivat",
-      "atisType": "Combined",
-      "codeRange": {
-        "low": "A",
-        "high": "Z"
-      },
-      "atisFormat": {
-        "observationTime": {
-          "template": {
-            "text": "{time}Z",
-            "voice": "{time} ZULU {special}"
-          }
-        },
-        "surfaceWind": {
-          "speakLeadingZero": false,
-          "magneticVariation": {
-            "enabled": false,
-            "magneticDegrees": 0
-          },
-          "standard": {
-            "template": {
-              "text": "{wind_dir}{wind_spd}KT",
-              "voice": "WIND {wind_dir} AT {wind_spd}"
-            }
-          },
-          "standardGust": {
-            "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
-              "voice": "WIND {wind_dir} AT {wind_spd} GUSTS {wind_gust}"
-            }
-          },
-          "variable": {
-            "template": {
-              "text": "VRB{wind_spd}KT",
-              "voice": "WIND VARIABLE AT {wind_spd}"
-            }
-          },
-          "variableGust": {
-            "template": {
-              "text": "VRB{wind_spd}G{wind_gust}KT",
-              "voice": "WIND VARIABLE AT {wind_spd} GUSTS {wind_gust}"
-            }
-          },
-          "variableDirection": {
-            "template": {
-              "text": "{wind_vmin}V{wind_vmax}",
-              "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}"
-            }
-          },
-          "calm": {
-            "calmWindSpeed": 2,
-            "template": {
-              "text": "{wind}",
-              "voice": "WIND CALM"
-            }
-          }
-        },
-        "visibility": {
-          "north": "to the north",
-          "northEast": "to the north-east",
-          "east": "to the east",
-          "southEast": "to the south-east",
-          "south": "to the south",
-          "southWest": "to the south-west",
-          "west": "to the west",
-          "northWest": "to the north-west",
-          "unlimitedVisibilityVoice": "visibility 10 kilometers or more",
-          "unlimitedVisibilityText": "VIS 10KM",
-          "includeVisibilitySuffix": true,
-          "metersCutoff": 5000,
-          "template": {
-            "text": "{visibility}",
-            "voice": "VISIBILITY {visibility}"
-          }
-        },
-        "presentWeather": {
-          "presentWeatherTypes": {
-            "-DS": {
-              "text": "-DS",
-              "spoken": "Light Duststorm"
-            },
-            "-DZ": {
-              "text": "-DZ",
-              "spoken": "Light Drizzle"
-            },
-            "-DZPL": {
-              "text": "-DZPL",
-              "spoken": "Light Drizzle And Ice Pellets"
-            },
-            "-DZPLRA": {
-              "text": "-DZPLRA",
-              "spoken": "Light Drizzle, Ice Pellets And Rain"
-            },
-            "-DZRA": {
-              "text": "-DZRA",
-              "spoken": "Light Drizzle And Rain"
-            },
-            "-DZRAPL": {
-              "text": "-DZRAPL",
-              "spoken": "Light Drizzle, Rain And Ice Pellets"
-            },
-            "-DZRASG": {
-              "text": "-DZRASG",
-              "spoken": "Light Drizzle, Rain And Snow Grains"
-            },
-            "-DZRASN": {
-              "text": "-DZRASN",
-              "spoken": "Light Drizzle, Rain And Snow"
-            },
-            "-DZSG": {
-              "text": "-DZSG",
-              "spoken": "Light Drizzle And Snow Grains"
-            },
-            "-DZSGRA": {
-              "text": "-DZSGRA",
-              "spoken": "Light Drizzle, Snow Grains And Rain"
-            },
-            "-DZSN": {
-              "text": "-DZSN",
-              "spoken": "Light Drizzle And Snow"
-            },
-            "-DZSNRA": {
-              "text": "-DZSNRA",
-              "spoken": "Light Drizzle, Snow And Rain"
-            },
-            "-FZDZ": {
-              "text": "-FZDZ",
-              "spoken": "Light Freezing Drizzle"
-            },
-            "-FZDZPL": {
-              "text": "-FZDZPL",
-              "spoken": "Light Freezing Drizzle And Ice Pellets"
-            },
-            "-FZDZRA": {
-              "text": "-FZDZRA",
-              "spoken": "Light Freezing Drizzle And Rain"
-            },
-            "-FZDZSG": {
-              "text": "-FZDZSG",
-              "spoken": "Light Freezing Drizzle And Snow Grains"
-            },
-            "-FZDZSN": {
-              "text": "-FZDZSN",
-              "spoken": "Light Freezing Drizzle And Snow"
-            },
-            "-FZRA": {
-              "text": "-FZRA",
-              "spoken": "Light Freezing Rain"
-            },
-            "-FZRADZ": {
-              "text": "-FZRADZ",
-              "spoken": "Light Freezing Rain And Drizzle"
-            },
-            "-FZRAPL": {
-              "text": "-FZRAPL",
-              "spoken": "Light Freezing Rain And Ice Pellets"
-            },
-            "-FZRASG": {
-              "text": "-FZRASG",
-              "spoken": "Light Freezing Rain And Snow Grains"
-            },
-            "-FZRASN": {
-              "text": "-FZRASN",
-              "spoken": "Light Freezing Rain And Snow"
-            },
-            "-FZUP": {
-              "text": "-FZUP",
-              "spoken": "Light Unidentified Freezing Precipitation"
-            },
-            "-PL": {
-              "text": "-PL",
-              "spoken": "Light Ice Pellets"
-            },
-            "-PLDZ": {
-              "text": "-PLDZ",
-              "spoken": "Light Ice Pellets And Drizzle"
-            },
-            "-PLDZRA": {
-              "text": "-PLDZRA",
-              "spoken": "Light Ice Pellets, Drizzle And Rain"
-            },
-            "-PLRA": {
-              "text": "-PLRA",
-              "spoken": "Light Ice Pellets And Rain"
-            },
-            "-PLRADZ": {
-              "text": "-PLRADZ",
-              "spoken": "Light Ice Pellets, Rain And Drizzle"
-            },
-            "-PLRASN": {
-              "text": "-PLRASN",
-              "spoken": "Light Ice Pellets, Rain And Snow"
-            },
-            "-PLSG": {
-              "text": "-PLSG",
-              "spoken": "Light Ice Pellets And Snow Grains"
-            },
-            "-PLSGSN": {
-              "text": "-PLSGSN",
-              "spoken": "Light Ice Pellets, Snow Grains And Snow"
-            },
-            "-PLSN": {
-              "text": "-PLSN",
-              "spoken": "Light Ice Pellets And Snow"
-            },
-            "-PLSNRA": {
-              "text": "-PLSNRA",
-              "spoken": "Light Ice Pellets, Snow And Rain"
-            },
-            "-PLSNSG": {
-              "text": "-PLSNSG",
-              "spoken": "Light Ice Pellets, Snow And Snow Grains"
-            },
-            "-RA": {
-              "text": "-RA",
-              "spoken": "Light Rain"
-            },
-            "-RADZ": {
-              "text": "-RADZ",
-              "spoken": "Light Rain And Drizzle"
-            },
-            "-RADZPL": {
-              "text": "-RADZPL",
-              "spoken": "Light Rain, Drizzle And Ice Pellets"
-            },
-            "-RADZSG": {
-              "text": "-RADZSG",
-              "spoken": "Light Rain, Drizzle And Snow Grains"
-            },
-            "-RADZSN": {
-              "text": "-RADZSN",
-              "spoken": "Light Rain, Drizzle And Snow"
-            },
-            "-RAPL": {
-              "text": "-RAPL",
-              "spoken": "Light Rain And Ice Pellets"
-            },
-            "-RAPLDZ": {
-              "text": "-RAPLDZ",
-              "spoken": "Light Rain, Ice Pellets And Drizzle"
-            },
-            "-RAPLSN": {
-              "text": "-RAPLSN",
-              "spoken": "Light Rain, Ice Pellets And Snow"
-            },
-            "-RASG": {
-              "text": "-RASG",
-              "spoken": "Light Rain And Snow Grains"
-            },
-            "-RASGDZ": {
-              "text": "-RASGDZ",
-              "spoken": "Light Rain, Snow Grains And Drizzle"
-            },
-            "-RASGSN": {
-              "text": "-RASGSN",
-              "spoken": "Light Rain, Snow Grains And Snow"
-            },
-            "-RASN": {
-              "text": "-RASN",
-              "spoken": "Light Rain And Snow"
-            },
-            "-RASNDZ": {
-              "text": "-RASNDZ",
-              "spoken": "Light Rain, Snow And Drizzle"
-            },
-            "-RASNPL": {
-              "text": "-RASNPL",
-              "spoken": "Light Rain, Snow And Ice Pellets"
-            },
-            "-RASNSG": {
-              "text": "-RASNSG",
-              "spoken": "Light Rain, Snow And Snow Grains"
-            },
-            "-SG": {
-              "text": "-SG",
-              "spoken": "Light Snow Grains"
-            },
-            "-SGDZ": {
-              "text": "-SGDZ",
-              "spoken": "Light Snow Grains And Drizzle"
-            },
-            "-SGDZRA": {
-              "text": "-SGDZRA",
-              "spoken": "Light Snow Grains, Drizzle And Rain"
-            },
-            "-SGPL": {
-              "text": "-SGPL",
-              "spoken": "Light Snow Grains And Ice Pellets"
-            },
-            "-SGPLSN": {
-              "text": "-SGPLSN",
-              "spoken": "Light Snow Grains, Ice Pellets And Snow"
-            },
-            "-SGRA": {
-              "text": "-SGRA",
-              "spoken": "Light Snow Grains And Rain"
-            },
-            "-SGRADZ": {
-              "text": "-SGRADZ",
-              "spoken": "Light Snow Grains, Rain And Drizzle"
-            },
-            "-SGRASN": {
-              "text": "-SGRASN",
-              "spoken": "Light Snow Grains, Rain And Snow"
-            },
-            "-SGSN": {
-              "text": "-SGSN",
-              "spoken": "Light Snow Grains And Snow"
-            },
-            "-SGSNPL": {
-              "text": "-SGSNPL",
-              "spoken": "Light Snow Grains, Snow And Ice Pellets"
-            },
-            "-SGSNRA": {
-              "text": "-SGSNRA",
-              "spoken": "Light Snow Grains, Snow And Rain"
-            },
-            "-SHGR": {
-              "text": "-SHGR",
-              "spoken": "Light Showers Of Hail"
-            },
-            "-SHGRRA": {
-              "text": "-SHGRRA",
-              "spoken": "Light Showers Of Hail And Rain"
-            },
-            "-SHGRRASN": {
-              "text": "-SHGRRASN",
-              "spoken": "Light Showers Of Hail, Rain And Snow"
-            },
-            "-SHGRSN": {
-              "text": "-SHGRSN",
-              "spoken": "Light Showers Of Hail And Snow"
-            },
-            "-SHGRSNRA": {
-              "text": "-SHGRSNRA",
-              "spoken": "Light Showers Of Hail, Snow And Rain"
-            },
-            "-SHGS": {
-              "text": "-SHGS",
-              "spoken": "Light Showers Of Snow Pellets"
-            },
-            "-SHGSRA": {
-              "text": "-SHGSRA",
-              "spoken": "Light Showers Of Snow Pellets And Rain"
-            },
-            "-SHGSRASN": {
-              "text": "-SHGSRASN",
-              "spoken": "Light Showers Of Snow Pellets, Rain And Snow"
-            },
-            "-SHGSSN": {
-              "text": "-SHGSSN",
-              "spoken": "Light Showers Of Snow Pellets And Snow"
-            },
-            "-SHGSSNRA": {
-              "text": "-SHGSSNRA",
-              "spoken": "Light Showers Of Snow Pellets, Snow And Rain"
-            },
-            "-SHRA": {
-              "text": "-SHRA",
-              "spoken": "Light Showers Of Rain"
-            },
-            "-SHRAGR": {
-              "text": "-SHRAGR",
-              "spoken": "Light Showers Of Rain And Hail"
-            },
-            "-SHRAGRSN": {
-              "text": "-SHRAGRSN",
-              "spoken": "Light Showers Of Rain, Hail And Snow"
-            },
-            "-SHRAGS": {
-              "text": "-SHRAGS",
-              "spoken": "Light Showers Of Rain And Snow Pellets"
-            },
-            "-SHRAGSSN": {
-              "text": "-SHRAGSSN",
-              "spoken": "Light Showers Of Rain, Snow Pellets And Snow"
-            },
-            "-SHRASN": {
-              "text": "-SHRASN",
-              "spoken": "Light Showers Of Rain And Snow"
-            },
-            "-SHRASNGR": {
-              "text": "-SHRASNGR",
-              "spoken": "Light Showers Of Rain, Snow And Hail"
-            },
-            "-SHRASNGS": {
-              "text": "-SHRASNGS",
-              "spoken": "Light Showers Of Rain, Snow And Snow Pellets"
-            },
-            "-SHSN": {
-              "text": "-SHSN",
-              "spoken": "Light Showers Of Snow"
-            },
-            "-SHSNGR": {
-              "text": "-SHSNGR",
-              "spoken": "Light Showers Of Snow And Hail"
-            },
-            "-SHSNGRRA": {
-              "text": "-SHSNGRRA",
-              "spoken": "Light Showers Of Snow, Hail And Rain"
-            },
-            "-SHSNGS": {
-              "text": "-SHSNGS",
-              "spoken": "Light Showers Of Snow And Snow Pellets"
-            },
-            "-SHSNGSRA": {
-              "text": "-SHSNGSRA",
-              "spoken": "Light Showers Of Snow, Snow Pellets And Rain"
-            },
-            "-SHSNRA": {
-              "text": "-SHSNRA",
-              "spoken": "Light Showers Of Snow And Rain"
-            },
-            "-SHSNRAGR": {
-              "text": "-SHSNRAGR",
-              "spoken": "Light Showers Of Snow, Rain And Hail"
-            },
-            "-SHSNRAGS": {
-              "text": "-SHSNRAGS",
-              "spoken": "Light Showers Of Snow, Rain And Snow Pellets"
-            },
-            "-SHUP": {
-              "text": "-SHUP",
-              "spoken": "Light Unidentified Showers Of Precipitation"
-            },
-            "-SN": {
-              "text": "-SN",
-              "spoken": "Light Snow"
-            },
-            "-SNDZ": {
-              "text": "-SNDZ",
-              "spoken": "Light Snow And Drizzle"
-            },
-            "-SNDZRA": {
-              "text": "-SNDZRA",
-              "spoken": "Light Snow, Drizzle And Rain"
-            },
-            "-SNPL": {
-              "text": "-SNPL",
-              "spoken": "Light Snow And Ice Pellets"
-            },
-            "-SNPLRA": {
-              "text": "-SNPLRA",
-              "spoken": "Light Snow, Ice Pellets And Rain"
-            },
-            "-SNPLSG": {
-              "text": "-SNPLSG",
-              "spoken": "Light Snow, Ice Pellets And Snow Grains"
-            },
-            "-SNRA": {
-              "text": "-SNRA",
-              "spoken": "Light Snow And Rain"
-            },
-            "-SNRADZ": {
-              "text": "-SNRADZ",
-              "spoken": "Light Snow, Rain And Drizzle"
-            },
-            "-SNRAPL": {
-              "text": "-SNRAPL",
-              "spoken": "Light Snow, Rain And Ice Pellets"
-            },
-            "-SNRASG": {
-              "text": "-SNRASG",
-              "spoken": "Light Snow, Rain And Snow Grains"
-            },
-            "-SNSG": {
-              "text": "-SNSG",
-              "spoken": "Light Snow And Snow Grains"
-            },
-            "-SNSGPL": {
-              "text": "-SNSGPL",
-              "spoken": "Light Snow, Snow Grains And Ice Pellets"
-            },
-            "-SNSGRA": {
-              "text": "-SNSGRA",
-              "spoken": "Light Snow, Snow Grains And Rain"
-            },
-            "-SS": {
-              "text": "-SS",
-              "spoken": "Light Sandstorm"
-            },
-            "-TSGR": {
-              "text": "-TSGR",
-              "spoken": "Thunderstorm With Light Hail"
-            },
-            "-TSGRRA": {
-              "text": "-TSGRRA",
-              "spoken": "Thunderstorm With Light Hail And Rain"
-            },
-            "-TSGRRASN": {
-              "text": "-TSGRRASN",
-              "spoken": "Thunderstorm With Light Hail, Rain And Snow"
-            },
-            "-TSGRSN": {
-              "text": "-TSGRSN",
-              "spoken": "Thunderstorm With Light Hail And Snow"
-            },
-            "-TSGRSNRA": {
-              "text": "-TSGRSNRA",
-              "spoken": "Thunderstorm With Light Hail, Snow And Rain"
-            },
-            "-TSGS": {
-              "text": "-TSGS",
-              "spoken": "Thunderstorm With Light Snow Pellets"
-            },
-            "-TSGSRA": {
-              "text": "-TSGSRA",
-              "spoken": "Thunderstorm With Light Snow Pellets And Rain"
-            },
-            "-TSGSRASN": {
-              "text": "-TSGSRASN",
-              "spoken": "Thunderstorm With Light Snow Pellets, Rain And Snow"
-            },
-            "-TSGSSN": {
-              "text": "-TSGSSN",
-              "spoken": "Thunderstorm With Light Snow Pellets And Snow"
-            },
-            "-TSGSSNRA": {
-              "text": "-TSGSSNRA",
-              "spoken": "Thunderstorm With Light Snow Pellets, Snow And Rain"
-            },
-            "-TSRA": {
-              "text": "-TSRA",
-              "spoken": "Thunderstorm With Light Rain"
-            },
-            "-TSRAGR": {
-              "text": "-TSRAGR",
-              "spoken": "Thunderstorm With Light Rain And Hail"
-            },
-            "-TSRAGRSN": {
-              "text": "-TSRAGRSN",
-              "spoken": "Thunderstorm With Light Rain, Hail And Snow"
-            },
-            "-TSRAGS": {
-              "text": "-TSRAGS",
-              "spoken": "Thunderstorm With Light Rain And Snow Pellets"
-            },
-            "-TSRAGSSN": {
-              "text": "-TSRAGSSN",
-              "spoken": "Thunderstorm With Light Rain, Snow Pellets And Snow"
-            },
-            "-TSRASN": {
-              "text": "-TSRASN",
-              "spoken": "Thunderstorm With Light Rain And Snow"
-            },
-            "-TSRASNGR": {
-              "text": "-TSRASNGR",
-              "spoken": "Thunderstorm With Light Rain, Snow And Hail"
-            },
-            "-TSRASNGS": {
-              "text": "-TSRASNGS",
-              "spoken": "Thunderstorm With Light Rain, Snow And Snow Pellets"
-            },
-            "-TSSN": {
-              "text": "-TSSN",
-              "spoken": "Thunderstorm With Light Snow"
-            },
-            "-TSSNGR": {
-              "text": "-TSSNGR",
-              "spoken": "Thunderstorm With Light Snow And Hail"
-            },
-            "-TSSNGRRA": {
-              "text": "-TSSNGRRA",
-              "spoken": "Thunderstorm With Light Snow, Hail And Rain"
-            },
-            "-TSSNGS": {
-              "text": "-TSSNGS",
-              "spoken": "Thunderstorm With Light Snow And Snow Pellets"
-            },
-            "-TSSNGSRA": {
-              "text": "-TSSNGSRA",
-              "spoken": "Thunderstorm With Light Snow, Snow Pellets And Rain"
-            },
-            "-TSSNRA": {
-              "text": "-TSSNRA",
-              "spoken": "Thunderstorm With Light Snow And Rain"
-            },
-            "-TSSNRAGR": {
-              "text": "-TSSNRAGR",
-              "spoken": "Thunderstorm With Light Snow, Rain And Hail"
-            },
-            "-TSSNRAGS": {
-              "text": "-TSSNRAGS",
-              "spoken": "Thunderstorm With Light Snow, Rain And Snow Pellets"
-            },
-            "-TSUP": {
-              "text": "-TSUP",
-              "spoken": "Thunderstorm With Light Unidentified Precipitation"
-            },
-            "-UP": {
-              "text": "-UP",
-              "spoken": "Light Unidentified Precipitation"
-            },
-            "+DS": {
-              "text": "+DS",
-              "spoken": "Heavy Duststorm"
-            },
-            "+DZ": {
-              "text": "+DZ",
-              "spoken": "Heavy Drizzle"
-            },
-            "+DZPL": {
-              "text": "+DZPL",
-              "spoken": "Heavy Drizzle And Ice Pellets"
-            },
-            "+DZPLRA": {
-              "text": "+DZPLRA",
-              "spoken": "Heavy Drizzle, Ice Pellets And Rain"
-            },
-            "+DZRA": {
-              "text": "+DZRA",
-              "spoken": "Heavy Drizzle And Rain"
-            },
-            "+DZRAPL": {
-              "text": "+DZRAPL",
-              "spoken": "Heavy Drizzle, Rain And Ice Pellets"
-            },
-            "+DZRASG": {
-              "text": "+DZRASG",
-              "spoken": "Heavy Drizzle, Rain And Snow Grains"
-            },
-            "+DZRASN": {
-              "text": "+DZRASN",
-              "spoken": "Heavy Drizzle, Rain And Snow"
-            },
-            "+DZSG": {
-              "text": "+DZSG",
-              "spoken": "Heavy Drizzle And Snow Grains"
-            },
-            "+DZSGRA": {
-              "text": "+DZSGRA",
-              "spoken": "Heavy Drizzle, Snow Grains And Rain"
-            },
-            "+DZSN": {
-              "text": "+DZSN",
-              "spoken": "Heavy Drizzle And Snow"
-            },
-            "+DZSNRA": {
-              "text": "+DZSNRA",
-              "spoken": "Heavy Drizzle, Snow And Rain"
-            },
-            "+FC": {
-              "text": "+FC",
-              "spoken": "Well-Developed Funnel Cloud"
-            },
-            "+FZDZ": {
-              "text": "+FZDZ",
-              "spoken": "Heavy Freezing Drizzle"
-            },
-            "+FZDZPL": {
-              "text": "+FZDZPL",
-              "spoken": "Heavy Freezing Drizzle And Ice Pellets"
-            },
-            "+FZDZRA": {
-              "text": "+FZDZRA",
-              "spoken": "Heavy Freezing Drizzle And Rain"
-            },
-            "+FZDZSG": {
-              "text": "+FZDZSG",
-              "spoken": "Heavy Freezing Drizzle And Snow Grains"
-            },
-            "+FZDZSN": {
-              "text": "+FZDZSN",
-              "spoken": "Heavy Freezing Drizzle And Snow"
-            },
-            "+FZRA": {
-              "text": "+FZRA",
-              "spoken": "Heavy Freezing Rain"
-            },
-            "+FZRADZ": {
-              "text": "+FZRADZ",
-              "spoken": "Heavy Freezing Rain And Drizzle"
-            },
-            "+FZRAPL": {
-              "text": "+FZRAPL",
-              "spoken": "Heavy Freezing Rain And Ice Pellets"
-            },
-            "+FZRASG": {
-              "text": "+FZRASG",
-              "spoken": "Heavy Freezing Rain And Snow Grains"
-            },
-            "+FZRASN": {
-              "text": "+FZRASN",
-              "spoken": "Heavy Freezing Rain And Snow"
-            },
-            "+FZUP": {
-              "text": "+FZUP",
-              "spoken": "Heavy Unidentified Freezing Precipitation"
-            },
-            "+PL": {
-              "text": "+PL",
-              "spoken": "Heavy Ice Pellets"
-            },
-            "+PLDZ": {
-              "text": "+PLDZ",
-              "spoken": "Heavy Ice Pellets And Drizzle"
-            },
-            "+PLDZRA": {
-              "text": "+PLDZRA",
-              "spoken": "Heavy Ice Pellets, Drizzle And Rain"
-            },
-            "+PLRA": {
-              "text": "+PLRA",
-              "spoken": "Heavy Ice Pellets And Rain"
-            },
-            "+PLRADZ": {
-              "text": "+PLRADZ",
-              "spoken": "Heavy Ice Pellets, Rain And Drizzle"
-            },
-            "+PLRASN": {
-              "text": "+PLRASN",
-              "spoken": "Heavy Ice Pellets, Rain And Snow"
-            },
-            "+PLSG": {
-              "text": "+PLSG",
-              "spoken": "Heavy Ice Pellets And Snow Grains"
-            },
-            "+PLSGSN": {
-              "text": "+PLSGSN",
-              "spoken": "Heavy Ice Pellets, Snow Grains And Snow"
-            },
-            "+PLSN": {
-              "text": "+PLSN",
-              "spoken": "Heavy Ice Pellets And Snow"
-            },
-            "+PLSNRA": {
-              "text": "+PLSNRA",
-              "spoken": "Heavy Ice Pellets, Snow And Rain"
-            },
-            "+PLSNSG": {
-              "text": "+PLSNSG",
-              "spoken": "Heavy Ice Pellets, Snow And Snow Grains"
-            },
-            "+RA": {
-              "text": "+RA",
-              "spoken": "Heavy Rain"
-            },
-            "+RADZ": {
-              "text": "+RADZ",
-              "spoken": "Heavy Rain And Drizzle"
-            },
-            "+RADZPL": {
-              "text": "+RADZPL",
-              "spoken": "Heavy Rain, Drizzle And Ice Pellets"
-            },
-            "+RADZSG": {
-              "text": "+RADZSG",
-              "spoken": "Heavy Rain, Drizzle And Snow Grains"
-            },
-            "+RADZSN": {
-              "text": "+RADZSN",
-              "spoken": "Heavy Rain, Drizzle And Snow"
-            },
-            "+RAPL": {
-              "text": "+RAPL",
-              "spoken": "Heavy Rain And Ice Pellets"
-            },
-            "+RAPLDZ": {
-              "text": "+RAPLDZ",
-              "spoken": "Heavy Rain, Ice Pellets And Drizzle"
-            },
-            "+RAPLSN": {
-              "text": "+RAPLSN",
-              "spoken": "Heavy Rain, Ice Pellets And Snow"
-            },
-            "+RASG": {
-              "text": "+RASG",
-              "spoken": "Heavy Rain And Snow Grains"
-            },
-            "+RASGDZ": {
-              "text": "+RASGDZ",
-              "spoken": "Heavy Rain, Snow Grains And Drizzle"
-            },
-            "+RASGSN": {
-              "text": "+RASGSN",
-              "spoken": "Heavy Rain, Snow Grains And Snow"
-            },
-            "+RASN": {
-              "text": "+RASN",
-              "spoken": "Heavy Rain And Snow"
-            },
-            "+RASNDZ": {
-              "text": "+RASNDZ",
-              "spoken": "Heavy Rain, Snow And Drizzle"
-            },
-            "+RASNPL": {
-              "text": "+RASNPL",
-              "spoken": "Heavy Rain, Snow And Ice Pellets"
-            },
-            "+RASNSG": {
-              "text": "+RASNSG",
-              "spoken": "Heavy Rain, Snow And Snow Grains"
-            },
-            "+SG": {
-              "text": "+SG",
-              "spoken": "Heavy Snow Grains"
-            },
-            "+SGDZ": {
-              "text": "+SGDZ",
-              "spoken": "Heavy Snow Grains And Drizzle"
-            },
-            "+SGDZRA": {
-              "text": "+SGDZRA",
-              "spoken": "Heavy Snow Grains, Drizzle And Rain"
-            },
-            "+SGPL": {
-              "text": "+SGPL",
-              "spoken": "Heavy Snow Grains And Ice Pellets"
-            },
-            "+SGPLSN": {
-              "text": "+SGPLSN",
-              "spoken": "Heavy Snow Grains, Ice Pellets And Snow"
-            },
-            "+SGRA": {
-              "text": "+SGRA",
-              "spoken": "Heavy Snow Grains And Rain"
-            },
-            "+SGRADZ": {
-              "text": "+SGRADZ",
-              "spoken": "Heavy Snow Grains, Rain And Drizzle"
-            },
-            "+SGRASN": {
-              "text": "+SGRASN",
-              "spoken": "Heavy Snow Grains, Rain And Snow"
-            },
-            "+SGSN": {
-              "text": "+SGSN",
-              "spoken": "Heavy Snow Grains And Snow"
-            },
-            "+SGSNPL": {
-              "text": "+SGSNPL",
-              "spoken": "Heavy Snow Grains, Snow And Ice Pellets"
-            },
-            "+SGSNRA": {
-              "text": "+SGSNRA",
-              "spoken": "Heavy Snow Grains, Snow And Rain"
-            },
-            "+SHGR": {
-              "text": "+SHGR",
-              "spoken": "Heavy Showers Of Hail"
-            },
-            "+SHGRRA": {
-              "text": "+SHGRRA",
-              "spoken": "Heavy Showers Of Hail And Rain"
-            },
-            "+SHGRRASN": {
-              "text": "+SHGRRASN",
-              "spoken": "Heavy Showers Of Hail, Rain And Snow"
-            },
-            "+SHGRSN": {
-              "text": "+SHGRSN",
-              "spoken": "Heavy Showers Of Hail And Snow"
-            },
-            "+SHGRSNRA": {
-              "text": "+SHGRSNRA",
-              "spoken": "Heavy Showers Of Hail, Snow And Rain"
-            },
-            "+SHGS": {
-              "text": "+SHGS",
-              "spoken": "Heavy Showers Of Snow Pellets"
-            },
-            "+SHGSRA": {
-              "text": "+SHGSRA",
-              "spoken": "Heavy Showers Of Snow Pellets And Rain"
-            },
-            "+SHGSRASN": {
-              "text": "+SHGSRASN",
-              "spoken": "Heavy Showers Of Snow Pellets, Rain And Snow"
-            },
-            "+SHGSSN": {
-              "text": "+SHGSSN",
-              "spoken": "Heavy Showers Of Snow Pellets And Snow"
-            },
-            "+SHGSSNRA": {
-              "text": "+SHGSSNRA",
-              "spoken": "Heavy Showers Of Snow Pellets, Snow And Rain"
-            },
-            "+SHRA": {
-              "text": "+SHRA",
-              "spoken": "Heavy Showers Of Rain"
-            },
-            "+SHRAGR": {
-              "text": "+SHRAGR",
-              "spoken": "Heavy Showers Of Rain And Hail"
-            },
-            "+SHRAGRSN": {
-              "text": "+SHRAGRSN",
-              "spoken": "Heavy Showers Of Rain, Hail And Snow"
-            },
-            "+SHRAGS": {
-              "text": "+SHRAGS",
-              "spoken": "Heavy Showers Of Rain And Snow Pellets"
-            },
-            "+SHRAGSSN": {
-              "text": "+SHRAGSSN",
-              "spoken": "Heavy Showers Of Rain, Snow Pellets And Snow"
-            },
-            "+SHRASN": {
-              "text": "+SHRASN",
-              "spoken": "Heavy Showers Of Rain And Snow"
-            },
-            "+SHRASNGR": {
-              "text": "+SHRASNGR",
-              "spoken": "Heavy Showers Of Rain, Snow And Hail"
-            },
-            "+SHRASNGS": {
-              "text": "+SHRASNGS",
-              "spoken": "Heavy Showers Of Rain, Snow And Snow Pellets"
-            },
-            "+SHSN": {
-              "text": "+SHSN",
-              "spoken": "Heavy Showers Of Snow"
-            },
-            "+SHSNGR": {
-              "text": "+SHSNGR",
-              "spoken": "Heavy Showers Of Snow And Hail"
-            },
-            "+SHSNGRRA": {
-              "text": "+SHSNGRRA",
-              "spoken": "Heavy Showers Of Snow, Hail And Rain"
-            },
-            "+SHSNGS": {
-              "text": "+SHSNGS",
-              "spoken": "Heavy Showers Of Snow And Snow Pellets"
-            },
-            "+SHSNGSRA": {
-              "text": "+SHSNGSRA",
-              "spoken": "Heavy Showers Of Snow, Snow Pellets And Rain"
-            },
-            "+SHSNRA": {
-              "text": "+SHSNRA",
-              "spoken": "Heavy Showers Of Snow And Rain"
-            },
-            "+SHSNRAGR": {
-              "text": "+SHSNRAGR",
-              "spoken": "Heavy Showers Of Snow, Rain And Hail"
-            },
-            "+SHSNRAGS": {
-              "text": "+SHSNRAGS",
-              "spoken": "Heavy Showers Of Snow, Rain And Snow Pellets"
-            },
-            "+SHUP": {
-              "text": "+SHUP",
-              "spoken": "Heavy Unidentified Showers Of Precipitation"
-            },
-            "+SN": {
-              "text": "+SN",
-              "spoken": "Heavy Snow"
-            },
-            "+SNDZ": {
-              "text": "+SNDZ",
-              "spoken": "Heavy Snow And Drizzle"
-            },
-            "+SNDZRA": {
-              "text": "+SNDZRA",
-              "spoken": "Heavy Snow, Drizzle And Rain"
-            },
-            "+SNPL": {
-              "text": "+SNPL",
-              "spoken": "Heavy Snow And Ice Pellets"
-            },
-            "+SNPLRA": {
-              "text": "+SNPLRA",
-              "spoken": "Heavy Snow, Ice Pellets And Rain"
-            },
-            "+SNPLSG": {
-              "text": "+SNPLSG",
-              "spoken": "Heavy Snow, Ice Pellets And Snow Grains"
-            },
-            "+SNRA": {
-              "text": "+SNRA",
-              "spoken": "Heavy Snow And Rain"
-            },
-            "+SNRADZ": {
-              "text": "+SNRADZ",
-              "spoken": "Heavy Snow, Rain And Drizzle"
-            },
-            "+SNRAPL": {
-              "text": "+SNRAPL",
-              "spoken": "Heavy Snow, Rain And Ice Pellets"
-            },
-            "+SNRASG": {
-              "text": "+SNRASG",
-              "spoken": "Heavy Snow, Rain And Snow Grains"
-            },
-            "+SNSG": {
-              "text": "+SNSG",
-              "spoken": "Heavy Snow And Snow Grains"
-            },
-            "+SNSGPL": {
-              "text": "+SNSGPL",
-              "spoken": "Heavy Snow, Snow Grains And Ice Pellets"
-            },
-            "+SNSGRA": {
-              "text": "+SNSGRA",
-              "spoken": "Heavy Snow, Snow Grains And Rain"
-            },
-            "+SS": {
-              "text": "+SS",
-              "spoken": "Heavy Sandstorm"
-            },
-            "+TSGR": {
-              "text": "+TSGR",
-              "spoken": "Thunderstorm With Heavy Hail"
-            },
-            "+TSGRRA": {
-              "text": "+TSGRRA",
-              "spoken": "Thunderstorm With Heavy Hail And Rain"
-            },
-            "+TSGRRASN": {
-              "text": "+TSGRRASN",
-              "spoken": "Thunderstorm With Heavy Hail, Rain And Snow"
-            },
-            "+TSGRSN": {
-              "text": "+TSGRSN",
-              "spoken": "Thunderstorm With Heavy Hail And Snow"
-            },
-            "+TSGRSNRA": {
-              "text": "+TSGRSNRA",
-              "spoken": "Thunderstorm With Heavy Hail, Snow And Rain"
-            },
-            "+TSGS": {
-              "text": "+TSGS",
-              "spoken": "Thunderstorm With Heavy Snow Pellets"
-            },
-            "+TSGSRA": {
-              "text": "+TSGSRA",
-              "spoken": "Thunderstorm With Heavy Snow Pellets And Rain"
-            },
-            "+TSGSRASN": {
-              "text": "+TSGSRASN",
-              "spoken": "Thunderstorm With Heavy Snow Pellets, Rain And Snow"
-            },
-            "+TSGSSN": {
-              "text": "+TSGSSN",
-              "spoken": "Thunderstorm With Heavy Snow Pellets And Snow"
-            },
-            "+TSGSSNRA": {
-              "text": "+TSGSSNRA",
-              "spoken": "Thunderstorm With Heavy Snow Pellets, Snow And Rain"
-            },
-            "+TSRA": {
-              "text": "+TSRA",
-              "spoken": "Thunderstorm With Heavy Rain"
-            },
-            "+TSRAGR": {
-              "text": "+TSRAGR",
-              "spoken": "Thunderstorm With Heavy Rain And Hail"
-            },
-            "+TSRAGRSN": {
-              "text": "+TSRAGRSN",
-              "spoken": "Thunderstorm With Heavy Rain, Hail And Snow"
-            },
-            "+TSRAGS": {
-              "text": "+TSRAGS",
-              "spoken": "Thunderstorm With Heavy Rain And Snow Pellets"
-            },
-            "+TSRAGSSN": {
-              "text": "+TSRAGSSN",
-              "spoken": "Thunderstorm With Heavy Rain, Snow Pellets And Snow"
-            },
-            "+TSRASN": {
-              "text": "+TSRASN",
-              "spoken": "Thunderstorm With Heavy Rain And Snow"
-            },
-            "+TSRASNGR": {
-              "text": "+TSRASNGR",
-              "spoken": "Thunderstorm With Heavy Rain, Snow And Hail"
-            },
-            "+TSRASNGS": {
-              "text": "+TSRASNGS",
-              "spoken": "Thunderstorm With Heavy Rain, Snow And Snow Pellets"
-            },
-            "+TSSN": {
-              "text": "+TSSN",
-              "spoken": "Thunderstorm With Heavy Snow"
-            },
-            "+TSSNGR": {
-              "text": "+TSSNGR",
-              "spoken": "Thunderstorm With Heavy Snow And Hail"
-            },
-            "+TSSNGRRA": {
-              "text": "+TSSNGRRA",
-              "spoken": "Thunderstorm With Heavy Snow, Hail And Rain"
-            },
-            "+TSSNGS": {
-              "text": "+TSSNGS",
-              "spoken": "Thunderstorm With Heavy Snow And Snow Pellets"
-            },
-            "+TSSNGSRA": {
-              "text": "+TSSNGSRA",
-              "spoken": "Thunderstorm With Heavy Snow, Snow Pellets And Rain"
-            },
-            "+TSSNRA": {
-              "text": "+TSSNRA",
-              "spoken": "Thunderstorm With Heavy Snow And Rain"
-            },
-            "+TSSNRAGR": {
-              "text": "+TSSNRAGR",
-              "spoken": "Thunderstorm With Heavy Snow, Rain And Hail"
-            },
-            "+TSSNRAGS": {
-              "text": "+TSSNRAGS",
-              "spoken": "Thunderstorm With Heavy Snow, Rain And Snow Pellets"
-            },
-            "+TSUP": {
-              "text": "+TSUP",
-              "spoken": "Thunderstorm With Heavy Unidentified Precipitation"
-            },
-            "+UP": {
-              "text": "+UP",
-              "spoken": "Heavy Unidentified Precipitation"
-            },
-            "BC": {
-              "text": "BC",
-              "spoken": "patches"
-            },
-            "BCFG": {
-              "text": "BCFG",
-              "spoken": "Patches Of Fog"
-            },
-            "BL": {
-              "text": "BL",
-              "spoken": "blowing"
-            },
-            "BLDU": {
-              "text": "BLDU",
-              "spoken": "Blowing Dust"
-            },
-            "BLSA": {
-              "text": "BLSA",
-              "spoken": "Blowing Sand"
-            },
-            "BLSN": {
-              "text": "BLSN",
-              "spoken": "Blowing Snow"
-            },
-            "BR": {
-              "text": "BR",
-              "spoken": "mist"
-            },
-            "DR": {
-              "text": "DR",
-              "spoken": "low drifting"
-            },
-            "DRDU": {
-              "text": "DRDU",
-              "spoken": "Low Drifting Dust"
-            },
-            "DRSA": {
-              "text": "DRSA",
-              "spoken": "Low Drifting Sand"
-            },
-            "DRSN": {
-              "text": "DRSN",
-              "spoken": "Low Drifting Snow"
-            },
-            "DS": {
-              "text": "DS",
-              "spoken": "dust storm"
-            },
-            "DU": {
-              "text": "DU",
-              "spoken": "widespread dust"
-            },
-            "DZ": {
-              "text": "DZ",
-              "spoken": "drizzle"
-            },
-            "DZPL": {
-              "text": "DZPL",
-              "spoken": "Drizzle And Ice Pellets"
-            },
-            "DZPLRA": {
-              "text": "DZPLRA",
-              "spoken": "Drizzle, Ice Pellets And Rain"
-            },
-            "DZRA": {
-              "text": "DZRA",
-              "spoken": "Drizzle And Rain"
-            },
-            "DZRAPL": {
-              "text": "DZRAPL",
-              "spoken": "Drizzle, Rain And Ice Pellets"
-            },
-            "DZRASG": {
-              "text": "DZRASG",
-              "spoken": "Drizzle, Rain And Snow Grains"
-            },
-            "DZRASN": {
-              "text": "DZRASN",
-              "spoken": "Drizzle, Rain And Snow"
-            },
-            "DZSG": {
-              "text": "DZSG",
-              "spoken": "Drizzle And Snow Grains"
-            },
-            "DZSGRA": {
-              "text": "DZSGRA",
-              "spoken": "Drizzle, Snow Grains And Rain"
-            },
-            "DZSN": {
-              "text": "DZSN",
-              "spoken": "Drizzle And Snow"
-            },
-            "DZSNRA": {
-              "text": "DZSNRA",
-              "spoken": "Drizzle, Snow And Rain"
-            },
-            "FC": {
-              "text": "FC",
-              "spoken": "funnel cloud tornado waterspout"
-            },
-            "FG": {
-              "text": "FG",
-              "spoken": "fog"
-            },
-            "FU": {
-              "text": "FU",
-              "spoken": "smoke"
-            },
-            "FZ": {
-              "text": "FZ",
-              "spoken": "freezing"
-            },
-            "FZDZ": {
-              "text": "FZDZ",
-              "spoken": "Freezing Drizzle"
-            },
-            "FZDZPL": {
-              "text": "FZDZPL",
-              "spoken": "Freezing Drizzle And Ice Pellets"
-            },
-            "FZDZRA": {
-              "text": "FZDZRA",
-              "spoken": "Freezing Drizzle And Rain"
-            },
-            "FZDZSG": {
-              "text": "FZDZSG",
-              "spoken": "Freezing Drizzle And Snow Grains"
-            },
-            "FZDZSN": {
-              "text": "FZDZSN",
-              "spoken": "Freezing Drizzle And Snow"
-            },
-            "FZFG": {
-              "text": "FZFG",
-              "spoken": "Freezing Fog"
-            },
-            "FZRA": {
-              "text": "FZRA",
-              "spoken": "Freezing Rain"
-            },
-            "FZRADZ": {
-              "text": "FZRADZ",
-              "spoken": "Freezing Rain And Drizzle"
-            },
-            "FZRAPL": {
-              "text": "FZRAPL",
-              "spoken": "Freezing Rain And Ice Pellets"
-            },
-            "FZRASG": {
-              "text": "FZRASG",
-              "spoken": "Freezing Rain And Snow Grains"
-            },
-            "FZRASN": {
-              "text": "FZRASN",
-              "spoken": "Freezing Rain And Snow"
-            },
-            "FZUP": {
-              "text": "FZUP",
-              "spoken": "Unidentified Freezing Precipitation"
-            },
-            "GR": {
-              "text": "GR",
-              "spoken": "hail"
-            },
-            "GS": {
-              "text": "GS",
-              "spoken": "small hail, snow pellets"
-            },
-            "HZ": {
-              "text": "HZ",
-              "spoken": "haze"
-            },
-            "IC": {
-              "text": "IC",
-              "spoken": "ice crystals"
-            },
-            "MI": {
-              "text": "MI",
-              "spoken": "shallow"
-            },
-            "MIFG": {
-              "text": "MIFG",
-              "spoken": "Shallow Fog"
-            },
-            "NSW": {
-              "text": "NSW",
-              "spoken": "No Significant Weather"
-            },
-            "PL": {
-              "text": "PL",
-              "spoken": "ice pellets"
-            },
-            "PLDZ": {
-              "text": "PLDZ",
-              "spoken": "Ice Pellets And Drizzle"
-            },
-            "PLDZRA": {
-              "text": "PLDZRA",
-              "spoken": "Ice Pellets, Drizzle And Rain"
-            },
-            "PLRA": {
-              "text": "PLRA",
-              "spoken": "Ice Pellets And Rain"
-            },
-            "PLRADZ": {
-              "text": "PLRADZ",
-              "spoken": "Ice Pellets, Rain And Drizzle"
-            },
-            "PLRASN": {
-              "text": "PLRASN",
-              "spoken": "Ice Pellets, Rain And Snow"
-            },
-            "PLSG": {
-              "text": "PLSG",
-              "spoken": "Ice Pellets And Snow Grains"
-            },
-            "PLSGSN": {
-              "text": "PLSGSN",
-              "spoken": "Ice Pellets, Snow Grains And Snow"
-            },
-            "PLSN": {
-              "text": "PLSN",
-              "spoken": "Ice Pellets And Snow"
-            },
-            "PLSNRA": {
-              "text": "PLSNRA",
-              "spoken": "Ice Pellets, Snow And Rain"
-            },
-            "PLSNSG": {
-              "text": "PLSNSG",
-              "spoken": "Ice Pellets, Snow And Snow Grains"
-            },
-            "PO": {
-              "text": "PO",
-              "spoken": "well developed dust, sand whirls"
-            },
-            "PR": {
-              "text": "PR",
-              "spoken": "partial"
-            },
-            "PRFG": {
-              "text": "PRFG",
-              "spoken": "Partial Fog"
-            },
-            "PY": {
-              "text": "PY",
-              "spoken": "spray"
-            },
-            "RA": {
-              "text": "RA",
-              "spoken": "rain"
-            },
-            "RADZ": {
-              "text": "RADZ",
-              "spoken": "Rain And Drizzle"
-            },
-            "RADZPL": {
-              "text": "RADZPL",
-              "spoken": "Rain, Drizzle And Ice Pellets"
-            },
-            "RADZSG": {
-              "text": "RADZSG",
-              "spoken": "Rain, Drizzle And Snow Grains"
-            },
-            "RADZSN": {
-              "text": "RADZSN",
-              "spoken": "Rain, Drizzle And Snow"
-            },
-            "RAPL": {
-              "text": "RAPL",
-              "spoken": "Rain And Ice Pellets"
-            },
-            "RAPLDZ": {
-              "text": "RAPLDZ",
-              "spoken": "Rain, Ice Pellets And Drizzle"
-            },
-            "RAPLSN": {
-              "text": "RAPLSN",
-              "spoken": "Rain, Ice Pellets And Snow"
-            },
-            "RASG": {
-              "text": "RASG",
-              "spoken": "Rain And Snow Grains"
-            },
-            "RASGDZ": {
-              "text": "RASGDZ",
-              "spoken": "Rain, Snow Grains And Drizzle"
-            },
-            "RASGSN": {
-              "text": "RASGSN",
-              "spoken": "Rain, Snow Grains And Snow"
-            },
-            "RASN": {
-              "text": "RASN",
-              "spoken": "Rain And Snow"
-            },
-            "RASNDZ": {
-              "text": "RASNDZ",
-              "spoken": "Rain, Snow And Drizzle"
-            },
-            "RASNPL": {
-              "text": "RASNPL",
-              "spoken": "Rain, Snow And Ice Pellets"
-            },
-            "RASNSG": {
-              "text": "RASNSG",
-              "spoken": "Rain, Snow And Snow Grains"
-            },
-            "SA": {
-              "text": "SA",
-              "spoken": "sand"
-            },
-            "SG": {
-              "text": "SG",
-              "spoken": "snow grains"
-            },
-            "SGDZ": {
-              "text": "SGDZ",
-              "spoken": "Snow Grains And Drizzle"
-            },
-            "SGDZRA": {
-              "text": "SGDZRA",
-              "spoken": "Snow Grains, Drizzle And Rain"
-            },
-            "SGPL": {
-              "text": "SGPL",
-              "spoken": "Snow Grains And Ice Pellets"
-            },
-            "SGPLSN": {
-              "text": "SGPLSN",
-              "spoken": "Snow Grains, Ice Pellets And Snow"
-            },
-            "SGRA": {
-              "text": "SGRA",
-              "spoken": "Snow Grains And Rain"
-            },
-            "SGRADZ": {
-              "text": "SGRADZ",
-              "spoken": "Snow Grains, Rain And Drizzle"
-            },
-            "SGRASN": {
-              "text": "SGRASN",
-              "spoken": "Snow Grains, Rain And Snow"
-            },
-            "SGSN": {
-              "text": "SGSN",
-              "spoken": "Snow Grains And Snow"
-            },
-            "SGSNPL": {
-              "text": "SGSNPL",
-              "spoken": "Snow Grains, Snow And Ice Pellets"
-            },
-            "SGSNRA": {
-              "text": "SGSNRA",
-              "spoken": "Snow Grains, Snow And Rain"
-            },
-            "SH": {
-              "text": "SH",
-              "spoken": "showers"
-            },
-            "SHGR": {
-              "text": "SHGR",
-              "spoken": "Showers Of Hail"
-            },
-            "SHGRRA": {
-              "text": "SHGRRA",
-              "spoken": "Showers Of Hail And Rain"
-            },
-            "SHGRRASN": {
-              "text": "SHGRRASN",
-              "spoken": "Showers Of Hail, Rain And Snow"
-            },
-            "SHGRSN": {
-              "text": "SHGRSN",
-              "spoken": "Showers Of Hail And Snow"
-            },
-            "SHGRSNRA": {
-              "text": "SHGRSNRA",
-              "spoken": "Showers Of Hail, Snow And Rain"
-            },
-            "SHGS": {
-              "text": "SHGS",
-              "spoken": "Showers Of Snow Pellets"
-            },
-            "SHGSRA": {
-              "text": "SHGSRA",
-              "spoken": "Showers Of Snow Pellets And Rain"
-            },
-            "SHGSRASN": {
-              "text": "SHGSRASN",
-              "spoken": "Showers Of Snow Pellets, Rain And Snow"
-            },
-            "SHGSSN": {
-              "text": "SHGSSN",
-              "spoken": "Showers Of Snow Pellets And Snow"
-            },
-            "SHGSSNRA": {
-              "text": "SHGSSNRA",
-              "spoken": "Showers Of Snow Pellets, Snow And Rain"
-            },
-            "SHRA": {
-              "text": "SHRA",
-              "spoken": "Showers Of Rain"
-            },
-            "SHRAGR": {
-              "text": "SHRAGR",
-              "spoken": "Showers Of Rain And Hail"
-            },
-            "SHRAGRSN": {
-              "text": "SHRAGRSN",
-              "spoken": "Showers Of Rain, Hail And Snow"
-            },
-            "SHRAGS": {
-              "text": "SHRAGS",
-              "spoken": "Showers Of Rain And Snow Pellets"
-            },
-            "SHRAGSSN": {
-              "text": "SHRAGSSN",
-              "spoken": "Showers Of Rain, Snow Pellets And Snow"
-            },
-            "SHRASN": {
-              "text": "SHRASN",
-              "spoken": "Showers Of Rain And Snow"
-            },
-            "SHRASNGR": {
-              "text": "SHRASNGR",
-              "spoken": "Showers Of Rain, Snow And Hail"
-            },
-            "SHRASNGS": {
-              "text": "SHRASNGS",
-              "spoken": "Showers Of Rain, Snow And Snow Pellets"
-            },
-            "SHSN": {
-              "text": "SHSN",
-              "spoken": "Showers Of Snow"
-            },
-            "SHSNGR": {
-              "text": "SHSNGR",
-              "spoken": "Showers Of Snow And Hail"
-            },
-            "SHSNGRRA": {
-              "text": "SHSNGRRA",
-              "spoken": "Showers Of Snow, Hail And Rain"
-            },
-            "SHSNGS": {
-              "text": "SHSNGS",
-              "spoken": "Showers Of Snow And Snow Pellets"
-            },
-            "SHSNGSRA": {
-              "text": "SHSNGSRA",
-              "spoken": "Showers Of Snow, Snow Pellets And Rain"
-            },
-            "SHSNRA": {
-              "text": "SHSNRA",
-              "spoken": "Showers Of Snow And Rain"
-            },
-            "SHSNRAGR": {
-              "text": "SHSNRAGR",
-              "spoken": "Showers Of Snow, Rain And Hail"
-            },
-            "SHSNRAGS": {
-              "text": "SHSNRAGS",
-              "spoken": "Showers Of Snow, Rain And Snow Pellets"
-            },
-            "SHUP": {
-              "text": "SHUP",
-              "spoken": "Unidentified Showers Of Precipitation"
-            },
-            "SN": {
-              "text": "SN",
-              "spoken": "snow"
-            },
-            "SNDZ": {
-              "text": "SNDZ",
-              "spoken": "Snow And Drizzle"
-            },
-            "SNDZRA": {
-              "text": "SNDZRA",
-              "spoken": "Snow, Drizzle And Rain"
-            },
-            "SNPL": {
-              "text": "SNPL",
-              "spoken": "Snow And Ice Pellets"
-            },
-            "SNPLRA": {
-              "text": "SNPLRA",
-              "spoken": "Snow, Ice Pellets And Rain"
-            },
-            "SNPLSG": {
-              "text": "SNPLSG",
-              "spoken": "Snow, Ice Pellets And Snow Grains"
-            },
-            "SNRA": {
-              "text": "SNRA",
-              "spoken": "Snow And Rain"
-            },
-            "SNRADZ": {
-              "text": "SNRADZ",
-              "spoken": "Snow, Rain And Drizzle"
-            },
-            "SNRAPL": {
-              "text": "SNRAPL",
-              "spoken": "Snow, Rain And Ice Pellets"
-            },
-            "SNRASG": {
-              "text": "SNRASG",
-              "spoken": "Snow, Rain And Snow Grains"
-            },
-            "SNSG": {
-              "text": "SNSG",
-              "spoken": "Snow And Snow Grains"
-            },
-            "SNSGPL": {
-              "text": "SNSGPL",
-              "spoken": "Snow, Snow Grains And Ice Pellets"
-            },
-            "SNSGRA": {
-              "text": "SNSGRA",
-              "spoken": "Snow, Snow Grains And Rain"
-            },
-            "SQ": {
-              "text": "SQ",
-              "spoken": "squalls"
-            },
-            "SS": {
-              "text": "SS",
-              "spoken": "sandstorm"
-            },
-            "TS": {
-              "text": "TS",
-              "spoken": "thunderstorm"
-            },
-            "TSGR": {
-              "text": "TSGR",
-              "spoken": "Thunderstorm With Hail"
-            },
-            "TSGRRA": {
-              "text": "TSGRRA",
-              "spoken": "Thunderstorm With Hail And Rain"
-            },
-            "TSGRRASN": {
-              "text": "TSGRRASN",
-              "spoken": "Thunderstorm With Hail, Rain And Snow"
-            },
-            "TSGRSN": {
-              "text": "TSGRSN",
-              "spoken": "Thunderstorm With Hail And Snow"
-            },
-            "TSGRSNRA": {
-              "text": "TSGRSNRA",
-              "spoken": "Thunderstorm With Hail, Snow And Rain"
-            },
-            "TSGS": {
-              "text": "TSGS",
-              "spoken": "Thunderstorm With Snow Pellets"
-            },
-            "TSGSRA": {
-              "text": "TSGSRA",
-              "spoken": "Thunderstorm With Snow Pellets And Rain"
-            },
-            "TSGSRASN": {
-              "text": "TSGSRASN",
-              "spoken": "Thunderstorm With Snow Pellets, Rain And Snow"
-            },
-            "TSGSSN": {
-              "text": "TSGSSN",
-              "spoken": "Thunderstorm With Snow Pellets And Snow"
-            },
-            "TSGSSNRA": {
-              "text": "TSGSSNRA",
-              "spoken": "Thunderstorm With Snow Pellets, Snow And Rain"
-            },
-            "TSRA": {
-              "text": "TSRA",
-              "spoken": "Thunderstorm With Rain"
-            },
-            "TSRAGR": {
-              "text": "TSRAGR",
-              "spoken": "Thunderstorm With Rain And Hail"
-            },
-            "TSRAGRSN": {
-              "text": "TSRAGRSN",
-              "spoken": "Thunderstorm With Rain, Hail And Snow"
-            },
-            "TSRAGS": {
-              "text": "TSRAGS",
-              "spoken": "Thunderstorm With Rain And Snow Pellets"
-            },
-            "TSRAGSSN": {
-              "text": "TSRAGSSN",
-              "spoken": "Thunderstorm With Rain, Snow Pellets And Snow"
-            },
-            "TSRASN": {
-              "text": "TSRASN",
-              "spoken": "Thunderstorm With Rain And Snow"
-            },
-            "TSRASNGR": {
-              "text": "TSRASNGR",
-              "spoken": "Thunderstorm With Rain, Snow And Hail"
-            },
-            "TSRASNGS": {
-              "text": "TSRASNGS",
-              "spoken": "Thunderstorm With Rain, Snow And Snow Pellets"
-            },
-            "TSSN": {
-              "text": "TSSN",
-              "spoken": "Thunderstorm With Snow"
-            },
-            "TSSNGR": {
-              "text": "TSSNGR",
-              "spoken": "Thunderstorm With Snow And Hail"
-            },
-            "TSSNGRRA": {
-              "text": "TSSNGRRA",
-              "spoken": "Thunderstorm With Snow, Hail And Rain"
-            },
-            "TSSNGS": {
-              "text": "TSSNGS",
-              "spoken": "Thunderstorm With Snow And Snow Pellets"
-            },
-            "TSSNGSRA": {
-              "text": "TSSNGSRA",
-              "spoken": "Thunderstorm With Snow, Snow Pellets And Rain"
-            },
-            "TSSNRA": {
-              "text": "TSSNRA",
-              "spoken": "Thunderstorm With Snow And Rain"
-            },
-            "TSSNRAGR": {
-              "text": "TSSNRAGR",
-              "spoken": "Thunderstorm With Snow, Rain And Hail"
-            },
-            "TSSNRAGS": {
-              "text": "TSSNRAGS",
-              "spoken": "Thunderstorm With Snow, Rain And Snow Pellets"
-            },
-            "TSUP": {
-              "text": "TSUP",
-              "spoken": "Thunderstorm With Unidentified Precipitation"
-            },
-            "UP": {
-              "text": "UP",
-              "spoken": "unknown precipitation"
-            },
-            "VA": {
-              "text": "VA",
-              "spoken": "volcanic ash"
-            },
-            "VCBLDU": {
-              "text": "VCBLDU",
-              "spoken": "Blowing Dust In The Vicinity"
-            },
-            "VCBLSA": {
-              "text": "VCBLSA",
-              "spoken": "Blowing Sand In The Vicinity"
-            },
-            "VCBLSN": {
-              "text": "VCBLSN",
-              "spoken": "Blowing Snow In The Vicinity"
-            },
-            "VCDS": {
-              "text": "VCDS",
-              "spoken": "Duststorm In The Vicinity"
-            },
-            "VCFC": {
-              "text": "VCFC",
-              "spoken": "Funnel Cloud In The Vicinity"
-            },
-            "VCFG": {
-              "text": "VCFG",
-              "spoken": "Fog In The Vicinity"
-            },
-            "VCPO": {
-              "text": "VCPO",
-              "spoken": "Dust/Sand Whirls In The Vicinity"
-            },
-            "VCSH": {
-              "text": "VCSH",
-              "spoken": "Showers In The Vicinity"
-            },
-            "VCSS": {
-              "text": "VCSS",
-              "spoken": "Sandstorm In The Vicinity"
-            },
-            "VCTS": {
-              "text": "VCTS",
-              "spoken": "Thunderstorm In The Vicinity"
-            },
-            "VCVA": {
-              "text": "VCVA",
-              "spoken": "Volcanic Ash In The Vicinity"
-            }
-          },
-          "template": {
-            "text": "{weather}",
-            "voice": "{weather}"
-          }
-        },
-        "recentWeather": {
-          "template": {
-            "text": "RECENT WEATHER {weather}",
-            "voice": "RECENT WEATHER {weather}"
-          }
-        },
-        "clouds": {
-          "identifyCeilingLayer": true,
-          "convertToMetric": false,
-          "isAltitudeInHundreds": false,
-          "undeterminedLayerAltitude": {
-            "text": "undetermined",
-            "voice": "undetermined"
-          },
-          "automaticCbDetection": {
-            "text": "//////CB",
-            "voice": "RADAR DETECTED C-B CLOUDS"
-          },
-          "types": {
-            "FEW": {
-              "text": "FEW{altitude}",
-              "voice": "few clouds at {altitude}"
-            },
-            "SCT": {
-              "text": "SCT{altitude}{convective}",
-              "voice": "{altitude} scattered {convective}"
-            },
-            "BKN": {
-              "text": "BKN{altitude}{convective}",
-              "voice": "{altitude} broken {convective}"
-            },
-            "OVC": {
-              "text": "OVC{altitude}{convective}",
-              "voice": "{altitude} overcast {convective}"
-            },
-            "VV": {
-              "text": "VV{altitude}",
-              "voice": "indefinite ceiling {altitude}"
-            },
-            "NSC": {
-              "text": "NSC",
-              "voice": "no significant clouds"
-            },
-            "NCD": {
-              "text": "NCD",
-              "voice": "no clouds detected"
-            },
-            "CLR": {
-              "text": "CLR",
-              "voice": "sky clear below one-two thousand"
-            },
-            "SKC": {
-              "text": "SKC",
-              "voice": "sky clear"
-            }
-          },
-          "convectiveTypes": {
-            "CB": "cumulonimbus",
-            "TCU": "towering cumulus"
-          },
-          "template": {
-            "text": "{clouds}",
-            "voice": "{clouds}"
-          }
-        },
-        "temperature": {
-          "usePlusPrefix": false,
-          "speakLeadingZero": false,
-          "template": {
-            "text": "{temp}",
-            "voice": "TEMPERATURE {temp}"
-          }
-        },
-        "dewpoint": {
-          "usePlusPrefix": false,
-          "speakLeadingZero": false,
-          "template": {
-            "text": "{dewpoint}",
-            "voice": "DEWPOINT {dewpoint}"
-          }
-        },
-        "altimeter": {
-          "pronounceDecimal": false,
-          "template": {
-            "text": "Q{altimeter} ({altimeter|text})",
-            "voice": "QNH{altimeter} "
-          }
-        },
-        "transitionLevel": {
-          "values": [
-            {
-              "low": 940,
-              "high": 1060,
-              "altitude": 50
-            }
-          ],
-          "template": {
-            "text": "TRANSITION LEVEL {trl}",
-            "voice": "TRANSITION LEVEL {trl}"
-          }
-        },
-        "notams": {
-          "template": {
-            "text": "NOTAMS... {notams}",
-            "voice": "NOTICES TO AIR MISSIONS: {notams}"
-          }
-        },
-        "closingStatement": {
-          "autoIncludeClosingStatement": false,
-          "template": {
-            "text": "...ADVS YOU HAVE INFO {letter}",
-            "voice": "ADVISE ON INITIAL CONTACT, YOU HAVE INFORMATION {letter|word}"
-          }
-        }
-      },
-      "notamsBeforeFreeText": false,
-      "airportConditionsBeforeFreeText": false,
-      "frequency": 118000000,
-      "idsEndpoint": "",
-      "useDecimalTerminology": true,
-      "atisVoice": {
-        "useTextToSpeech": true,
-        "voice": "UK Male",
-        "speechRate": 180
-      },
-      "presets": [
-        {
-          "id": "d614d0ea-575d-42a5-9f81-fed4f5381fc1",
-          "name": "14",
-          "airportConditions": "RUNWAY IN USE 14. EXPECT VISUAL APPROACH",
-          "notams": "",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. TRANSITION LEVEL 100. [ARPT_COND] [NOTAMS]...ADVS YOU HAVE INFO [ATIS_CODE]",
-          "externalGenerator": {
-            "enabled": false
-          }
-        },
-        {
-          "id": "8a58c97c-08fa-4007-803a-1939b1963cf9",
-          "name": "32",
-          "airportConditions": "RUNWAY IN USE 32. EXPECT LOC APPROACH.",
-          "notams": "AIRCRAFT SHOULD VACATE VIA A",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. TRANSITION LEVEL 100. [ARPT_COND] [NOTAMS]...ADVS YOU HAVE INFO [ATIS_CODE]",
-          "externalGenerator": {
-            "enabled": false
-          }
-        },
-        {
-          "id": "42e3a295-a1d7-4e35-9a1c-2f51cdae74f2",
-          "name": "EVENT",
-          "airportConditions": "RUNWAY IN USE 32. EXPECT LOC APPROACH.",
-          "notams": "AIRCRAFT SHOULD VACATE VIA A",
-          "template": "[FACILITY] ATIS INFO [ATIS_CODE] [OBS_TIME]. [FULL_WX_STRING]. TRANSITION LEVEL 100. [ARPT_COND] [NOTAMS]...ADVS YOU HAVE INFO [ATIS_CODE]",
-          "externalGenerator": {
-            "enabled": false
-          }
-        }
-      ],
-      "contractions": [
-        {
-          "variableName": "14",
-          "text": "14",
-          "voice": "ONE FOUR"
-        },
-        {
-          "variableName": "32",
-          "text": "32",
-          "voice": "THREE TWO"
-        },
-        {
-          "variableName": "LOC",
-          "text": "LOC",
-          "voice": "LOCALISER"
-        },
-        {
-          "variableName": "LYTV",
-          "text": "LYTV",
-          "voice": "TI VUHT"
-        },
-        {
-          "variableName": "TIVAT",
-          "text": "LYTV",
-          "voice": "TI VUHT"
-        }
-      ],
-      "airportConditionDefinitions": [],
-      "notamDefinitions": []
-    },
-    {
       "id": "19c4710f-70fd-49bf-a0c8-b1ef411bcc02",
       "ordinal": 0,
       "identifier": "EFKT",
@@ -18371,6 +17860,12 @@
             "text": "{visibility}.",
             "voice": "VISIBILITY {visibility}"
           }
+        },
+        "runwayVisualRange": {
+          "neutralTendency": "Neutral",
+          "goingUpTendency": "Going Up",
+          "goingDownTendency": "Going Down",
+          "template": {}
         },
         "presentWeather": {
           "presentWeatherTypes": {
@@ -20116,6 +19611,12 @@
         },
         "clouds": {
           "identifyCeilingLayer": false,
+          "identifyCeilingLayerTextAtis": false,
+          "textAtisCeilingPrefix": "CIG",
+          "cloudCeilingLayerTypes": [
+            "BKN",
+            "OVC"
+          ],
           "convertToMetric": false,
           "isAltitudeInHundreds": false,
           "undeterminedLayerAltitude": {
@@ -20195,6 +19696,22 @@
             "text": "QNH {altimeter}.",
             "voice": "QNH {altimeter}"
           }
+        },
+        "trend": {
+          "nosigText": "NOSIG",
+          "nosigVoice": "No Significant Changes",
+          "becomingText": "BECMG",
+          "becomingVoice": "Becoming",
+          "temporaryText": "TEMPO",
+          "temporaryVoice": "Temporary",
+          "template": {}
+        },
+        "windShear": {
+          "runwayText": "WS R{Runway}",
+          "runwayVoice": "Wind Shear Runway {Runway}",
+          "allRunwayText": "WS ALL RWY",
+          "allRunwayVoice": "Wind Shear All Runways",
+          "template": {}
         },
         "transitionLevel": {
           "values": [
