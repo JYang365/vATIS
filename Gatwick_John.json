@@ -1,8 +1,8 @@
 {
   "name": "Gatwick - John",
-  "id": "1cd790b0-3085-45d3-acc3-1b08a9b26a14",
+  "id": "75675037-044a-4a34-97e1-e42348684eb3",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/Gatwick_John.json",
-  "updateSerial": 2025060901,
+  "updateSerial": 2025060902,
   "stations": [
     {
       "id": "80a38740-c5f8-4c3d-8ab1-6eebbc0d97d7",
@@ -1975,7 +1975,7 @@
           ],
           "template": {
             "text": "TRANSITION-LEVEL FL {trl}",
-            "voice": "TRANSITION LEVEL FLIGHT LEVEL  ZERO {trl|text}"
+            "voice": "TRANSITION LEVEL FLIGHT LEVEL  {trl|text}"
           }
         },
         "notams": {
@@ -2000,7 +2000,7 @@
       "atisVoice": {
         "useTextToSpeech": true,
         "voice": "UK Male",
-        "speechRate": 180
+        "speechRate": 190
       },
       "presets": [
         {
@@ -3253,6 +3253,11 @@
           "variableName": "DEL_GND_CLOSED",
           "text": "GATWICK DELIVERY AND GROUND ARE CLOSED. ATC SERVICE CONTINUES ON TOWER FREQUENCY 124.230",
           "voice": "GROUND MOVEMENT CONTROL AND CLEARANCE DELIVERY ARE CLOSED, @ATC SERVICE CONTINUES ON TOWER FREQUENCY WUN TWO FOWER DECIMAL TWO FOWER ZERO"
+        },
+        {
+          "variableName": "VIS",
+          "text": "VIS",
+          "voice": "VIZ"
         }
       ],
       "airportConditionDefinitions": [
@@ -3263,13 +3268,13 @@
         },
         {
           "text": "TURBULENCE MAY BE ENCOUNTERED ON THE FINAL STAGES OF THE APPROACH",
-          "ordinal": 1,
+          "ordinal": 2,
           "enabled": false
         },
         {
-          "text": "AUTOMATIC LOW VIS PROCEDURES IN FORCE",
+          "text": "AUTOMATIC LOW @VIS PROCEDURES IN FORCE",
           "ordinal": 3,
-          "enabled": false
+          "enabled": true
         },
         {
           "text": "INCREASED BIRD ACTIVITY WITHIN THE AERODROME BOUNDARY",
