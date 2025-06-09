@@ -1,8 +1,8 @@
 {
   "name": "PF",
-  "id": "f8eb3e63-8af8-4aab-adce-7143f63a9b19",
+  "id": "7155b389-515f-42ec-bb1a-69c9eb758f03",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/PF.json",
-  "updateSerial": 2025060805,
+  "updateSerial": 2025060901,
   "stations": [
     {
       "id": "6a845fc7-de82-40a8-8669-4f8d72979b75",
@@ -2180,7 +2180,7 @@
           "west": "to the west",
           "northWest": "to the north-west",
           "unlimitedVisibilityVoice": "visibility 10 kilometers or more",
-          "unlimitedVisibilityText": "VIS 10KM",
+          "unlimitedVisibilityText": "9999",
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
           "template": {
@@ -4020,7 +4020,7 @@
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH {altimeter} ({altimeter|text})",
+            "text": "Q{altimeter}",
             "voice": "QNH {altimeter}"
           }
         },
@@ -4050,13 +4050,13 @@
           ],
           "template": {
             "text": "TRANSITION-LEVEL FL 0{trl}",
-            "voice": "TRANSITION LEVEL {trl}"
+            "voice": "TRANSITION LEVEL FLIGHT LEVEL {trl}"
           }
         },
         "notams": {
           "template": {
             "text": "{notams}",
-            "voice": "NOTICES TO AIR MISSIONS: {notams}"
+            "voice": "{notams}"
           }
         },
         "closingStatement": {
@@ -4074,8 +4074,8 @@
       "useDecimalTerminology": true,
       "atisVoice": {
         "useTextToSpeech": true,
-        "voice": "Default",
-        "speechRate": 220
+        "voice": "UK Male",
+        "speechRate": 190
       },
       "presets": [
         {
@@ -5318,9 +5318,30 @@
           "variableName": "DEPTH_NR_NR_NR",
           "text": "DEPTH:NR/NR/NR",
           "voice": "DEPTH. NOT REPORTED, NOT REPORTED, NOT REPORTED."
+        },
+        {
+          "variableName": "VIS",
+          "text": "VIS",
+          "voice": "VIZ"
         }
       ],
-      "airportConditionDefinitions": [],
+      "airportConditionDefinitions": [
+        {
+          "text": "WINDSHEAR REPORTED",
+          "ordinal": 1,
+          "enabled": false
+        },
+        {
+          "text": "TURBULENCE MAY BE ENCOUNTERED ON THE FINAL STAGES OF THE APPROACH",
+          "ordinal": 2,
+          "enabled": false
+        },
+        {
+          "text": "AUTOMATIC LOW VIS PROCEDURES IN FORCE",
+          "ordinal": 3,
+          "enabled": false
+        }
+      ],
       "notamDefinitions": [
         {
           "text": "DEPARTURE FLIGHT CREW MUST REPORT READY WITH GATWICK DELIVERY ON 121.955",
@@ -9406,7 +9427,7 @@
             30
           ],
           "template": {
-            "text": "{time}",
+            "text": "{time}Z",
             "voice": "{time} ZULU {special}"
           }
         },
@@ -9430,7 +9451,7 @@
           },
           "variable": {
             "template": {
-              "text": "WIND VRB {wind_spd} KT",
+              "text": "{wind_spd} KT VRB",
               "voice": "WIND VARIABLE AT {wind_spd}"
             }
           },
@@ -9468,8 +9489,8 @@
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
           "template": {
-            "text": "{visibility}",
-            "voice": "VISIBILITY {visibility}"
+            "text": "VIS {visibility}",
+            "voice": "VIZ {visibility}"
           }
         },
         "runwayVisualRange": {
@@ -11286,7 +11307,7 @@
           }
         },
         "temperature": {
-          "usePlusPrefix": false,
+          "usePlusPrefix": true,
           "speakLeadingZero": false,
           "template": {
             "text": "T{temp}",
@@ -11294,7 +11315,7 @@
           }
         },
         "dewpoint": {
-          "usePlusPrefix": false,
+          "usePlusPrefix": true,
           "speakLeadingZero": false,
           "template": {
             "text": "DP{dewpoint}",
@@ -11333,21 +11354,21 @@
             }
           ],
           "template": {
-            "text": "FL0{trl}",
-            "voice": "TRANSITION LEVEL {trl}"
+            "text": "TRL FL0{trl}",
+            "voice": "TRANSITION LEVEL FLIGHT LEVEL ZERO{trl}"
           }
         },
         "notams": {
           "template": {
             "text": "{notams}",
-            "voice": "NOTICES TO AIR MISSIONS: {notams}"
+            "voice": "{notams}"
           }
         },
         "closingStatement": {
           "autoIncludeClosingStatement": true,
           "template": {
             "text": "CONFIRM ATIS {letter}",
-            "voice": "ADVISE ON INITIAL CONTACT, YOU HAVE INFORMATION {letter|word}"
+            "voice": "CONFIRM ATIS {letter|word}"
           }
         }
       },
@@ -11357,7 +11378,7 @@
       "idsEndpoint": "",
       "useDecimalTerminology": true,
       "atisVoice": {
-        "useTextToSpeech": true,
+        "useTextToSpeech": false,
         "voice": "AU Female",
         "speechRate": 180
       },
@@ -11365,39 +11386,33 @@
         {
           "id": "2e18467e-b382-4c75-b891-83f0779e6e0a",
           "name": "01",
-          "airportConditions": "DEPARTURE RWY 01. ARRIVAL RWY 01. EXPECT ILS Y APPROACH RWY 01.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
+          "airportConditions": "",
+          "notams": "EXPECT ILS Y APCH RWY IN USE 01",
+          "template": "[FACILITY] ATIS [ATIS_CODE] [TIME] [NOTAMS] [TL] [WX] [ARPT_COND] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "fb252ca9-5176-40d5-9342-cd02780e0c96",
           "name": "19",
-          "airportConditions": "DEPARTURE RWY 19. ARRIVAL RWY 19. EXPECT ILS Y APPROACH RWY 19.",
-          "template": "THIS IS [FACILITY] ATIS INFORMATION [ATIS_CODE]. AT TIME [OBS_TIME]. [ARPT_COND]. [NOTAMS]. [FULL_WX_STRING]. [TL]. THIS WAS [FACILITY] ATIS INFORMATION [ATIS_CODE].",
+          "airportConditions": "",
+          "notams": "EXPECT ILS Y APCH RWY IN USE 19",
+          "template": "[FACILITY] ATIS [ATIS_CODE] [TIME] [NOTAMS] [TL] [WX] [ARPT_COND] [CLOSING]",
           "externalGenerator": {
-            "enabled": false
-          }
-        },
-        {
-          "id": "088073ce-6c60-439f-8fbf-3b3abe20c9f8",
-          "name": "IRL RWY19",
-          "airportConditions": "EXPECT ILS Y APCH RWY IN USE 19",
-          "notams": "BIRDS IN THE VICINITY . CAUTION TANGO 1 IS ON MAIN TAXIWAY",
-          "template": "[FACILITY] INFO [ATIS_CODE] TIME [OBS_TIME] [ARPT_COND] TRL [TL] [WIND] . [VIS] [CLOUDS] [TEMP] [DEW] [PRESSURE] [TREND] [RECENT_WX] . [NOTAMS] [CLOSING]",
-          "externalGenerator": {
-            "enabled": false
-          }
-        },
-        {
-          "id": "f9324508-8125-44fc-bde5-7849d091183a",
-          "name": "IRL RWY01",
-          "airportConditions": "EXPECT ILS Y APCH RWY IN USE 01",
-          "notams": "BIRDS IN THE VICINITY . CAUTION TANGO 1 IS ON MAIN TAXIWAY",
-          "template": "[FACILITY] INFO [ATIS_CODE] TIME [OBS_TIME] [ARPT_COND] TRL [TL] [WIND] . [VIS] [CLOUDS] [TEMP] [DEW] [PRESSURE] [TREND] [RECENT_WX] . [NOTAMS] [CLOSING]",
-          "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         }
       ],
@@ -11458,7 +11473,13 @@
           "voice": "NO-SIG"
         }
       ],
-      "airportConditionDefinitions": [],
+      "airportConditionDefinitions": [
+        {
+          "text": ". BIRDS IN THE VICINITY",
+          "ordinal": 1,
+          "enabled": true
+        }
+      ],
       "notamDefinitions": []
     },
     {
