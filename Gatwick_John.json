@@ -1,8 +1,8 @@
 {
   "name": "Gatwick - John",
-  "id": "75675037-044a-4a34-97e1-e42348684eb3",
+  "id": "e1b9fdfb-aff8-43be-8efa-bf09022dec15",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/Gatwick_John.json",
-  "updateSerial": 2025060902,
+  "updateSerial": 2025062201,
   "stations": [
     {
       "id": "80a38740-c5f8-4c3d-8ab1-6eebbc0d97d7",
@@ -2038,8 +2038,8 @@
         {
           "id": "0a5429f7-2275-4d92-8bbb-2a905000b1a3",
           "name": "26R",
-          "airportConditions": "",
-          "notams": "@ILS APPROACH TO BE EXPECTED. GATWICK DELIVERY AND GROUND ARE CLOSED. @ATC SERVICE CONTINUES ON TOWER FREQUENCY 124.230",
+          "airportConditions": "@26R_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
+          "notams": "@RNAV APPROACH TO BE EXPECTED.",
           "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26R. [ARPT_COND]. [TL]. [NOTAMS] [WX] [CLOSING]",
           "externalGenerator": {
             "enabled": false,
@@ -3274,7 +3274,7 @@
         {
           "text": "AUTOMATIC LOW @VIS PROCEDURES IN FORCE",
           "ordinal": 3,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "INCREASED BIRD ACTIVITY WITHIN THE AERODROME BOUNDARY",
@@ -3326,7 +3326,7 @@
         {
           "text": "GATWICK DELIVERY, GROUND AND TOWER ARE CLOSED. ATC SERVICE CONTINUES ON DIRECTOR FREQUENCY 126.825",
           "ordinal": 4,
-          "enabled": true
+          "enabled": false
         },
         {
           "text": "FLIGHT CREWS ARE NOT TO REQUEST REMOTE HOLDING. THIS WILL BE OFFERED ON A TACTICAL BASIS BY @ATC",
