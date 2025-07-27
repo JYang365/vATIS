@@ -2,7 +2,7 @@
   "name": "PF",
   "id": "7155b389-515f-42ec-bb1a-69c9eb758f03",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/PF.json",
-  "updateSerial": 2025062201,
+  "updateSerial": 2025072801,
   "stations": [
     {
       "id": "6a845fc7-de82-40a8-8669-4f8d72979b75",
@@ -14519,7 +14519,7 @@
       "atisFormat": {
         "observationTime": {
           "template": {
-            "text": "{time}",
+            "text": "{time}Z",
             "voice": "AT TIME {time} {special}."
           }
         },
@@ -16402,7 +16402,7 @@
           "usePlusPrefix": false,
           "speakLeadingZero": false,
           "template": {
-            "text": "T {temp}",
+            "text": "T {prefix_symbol}{temp}",
             "voice": "TEMPERATURE {temp}"
           }
         },
@@ -16410,14 +16410,14 @@
           "usePlusPrefix": false,
           "speakLeadingZero": false,
           "template": {
-            "text": "DP {dewpoint}",
+            "text": "DP {prefix_symbol}{dewpoint}",
             "voice": "DEWPOINT {dewpoint}"
           }
         },
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH {altimeter}.",
+            "text": "QNH {altimeter}",
             "voice": "QNH {altimeter}"
           }
         },
@@ -16457,7 +16457,7 @@
           }
         },
         "closingStatement": {
-          "autoIncludeClosingStatement": true,
+          "autoIncludeClosingStatement": false,
           "template": {
             "text": "ACK INFO {letter}",
             "voice": "ADVISE ON INITIAL CONTACT, YOU HAVE INFORMATION {letter|word}"
@@ -16479,72 +16479,120 @@
           "id": "895dfd83-625d-459a-8f91-fb8250525c3d",
           "name": "34 ILS-Z (PRIMARY)",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME]. \r\nILS Z APCH EXPECTED. \r\nRWY 34 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] ILS Z APCH EXPECTED RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "003f43eb-e8a3-4347-866b-6be5fb3ebee6",
           "name": "16 RNP (PRIMARY)",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME]. \r\nRNP APCH EXPECTED. \r\nRWY 16 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RNP APCH EXPECTED RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "643b9a35-a9d8-406f-a29c-c9037c83dedb",
           "name": "34 AFIS",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME]. \r\nRWY 34 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "46c0a0b4-7e85-4119-984e-4c67b4a5ef6c",
           "name": "16 AFIS",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME].  \r\nRWY 16 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "c6e6ac5a-01df-4535-bd4c-badbc1fc6282",
           "name": "34 RNP",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME]. \r\nRNP APCH EXPECTED. \r\nRWY 34 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RNP APCH EXPECTED RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "64b4c1bf-3705-48ba-a8bd-99da8928f1b5",
           "name": "16 LOC-Z",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME]. \r\nLOC Z APCH EXPECTED. \r\nRWY 16 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] LOC Z APCH EXPECTED RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "ee877e4e-3533-47e7-98de-2f11ce035855",
           "name": "34 VISUAL",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME]. \r\nVISUAL APCH EXPECTED. \r\nRWY 34 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] VISUAL APCH EXPECTED RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         },
         {
           "id": "6a66e025-c152-49b1-9cf2-a9906fae538b",
           "name": "16 VISUAL",
           "airportConditions": "",
-          "template": "EFKT ARR AND DEP INFO [ATIS_CODE]. [TIME]. \r\nVISUAL APCH EXPECTED. \r\nRWY 16 IN USE. \r\n[ARPT_COND]. \r\n[TL]. \r\nAUTO. \r\n[WIND]. \r\n[VIS] \r\n[NOTAMS] \r\n[PRESENT_WX] \r\n[CLOUDS] \r\n[TEMP] [DEW] [PRESSURE]\r",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] VISUAL APCH EXPECTED RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
-            "enabled": false
+            "enabled": false,
+            "textUrl": "",
+            "voiceUrl": "",
+            "arrival": "",
+            "departure": "",
+            "approaches": "",
+            "remarks": ""
           }
         }
       ],
@@ -16592,14 +16640,14 @@
       ],
       "airportConditionDefinitions": [
         {
-          "text": "",
+          "text": "LOCATOR L AND KIT U/S.",
           "ordinal": 1,
-          "enabled": false
+          "enabled": true
         },
         {
-          "text": "DEP TFC CONTACT HELSINKI CTL 121.3",
-          "ordinal": 11,
-          "enabled": false
+          "text": "TWR IS CLSD. WILL OPEN JUL 16 AT 0930 UTC",
+          "ordinal": 2,
+          "enabled": true
         }
       ],
       "notamDefinitions": [
@@ -22656,7 +22704,7 @@
         {
           "id": "91bd77f5-1bf1-4434-a072-ad25b0cbec50",
           "name": "26L",
-          "airportConditions": "@26L_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
+          "airportConditions": "",
           "notams": "@ILS APPROACH TO BE EXPECTED.",
           "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WX] [CLOSING]",
           "externalGenerator": {
@@ -23961,7 +24009,7 @@
         {
           "text": "DEPARTURE FLIGHT CREW MUST REPORT READY WITH GATWICK DELIVERY ON 121.955",
           "ordinal": 1,
-          "enabled": false
+          "enabled": true
         },
         {
           "text": "@DEL_CLOSED",
