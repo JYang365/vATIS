@@ -20626,7 +20626,7 @@
           "id": "950ca488-93bb-47e1-ae48-cc7cbc377d41",
           "ordinal": 1,
           "name": "10 CIRCLE TO LAND",
-          "airportConditions": "REMARKS // RUNWAY 10 CIRCLE TO LAND IN USE․․․. AIRCRAFT EPXECT VECTORS TO DOWNWIND RWY 28 AKROTIRI․․․. FJ PLAN INITIAL TO BREAK LH TO CIRCUIT MIDS 28․․․.",
+          "airportConditions": "REMARKS // RUNWAY 10 CIRCLE TO LAND IN USE․․․. AIRCRAFT EXPECT VECTORS TO DOWNWIND RWY 28 AKROTIRI․․․. FJ PLAN INITIAL TO BREAK LH TO CIRCUIT MIDS 28․․․.",
           "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 10 RIGHT HAND.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 73.5 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
           "externalGenerator": {
             "enabled": false,
@@ -20642,7 +20642,7 @@
           "id": "4dd2ffcb-1a65-4fe5-ad02-ecc3da5b4731",
           "ordinal": 2,
           "name": "10 NON STANDARD",
-          "airportConditions": "REMARKS // RUNWAY 10 PAR OR SURVEILANCE APPROACH IN USE․․․.",
+          "airportConditions": "REMARKS // RUNWAY 10 PAR OR SURVEILLANCE APPROACH IN USE․․․.",
           "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 10.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 73.5 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
           "externalGenerator": {
             "enabled": false,
