@@ -1,8 +1,8 @@
 {
   "name": "PF",
-  "id": "7155b389-515f-42ec-bb1a-69c9eb758f03",
+  "id": "e0ddb7fa-9352-460e-a107-8dbeff4d2f60",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/PF.json",
-  "updateSerial": 2025072803,
+  "updateSerial": 2025081701,
   "stations": [
     {
       "id": "6a845fc7-de82-40a8-8669-4f8d72979b75",
@@ -10190,7 +10190,7 @@
           }
         }
       },
-      "notamsBeforeFreeText": false,
+      "notamsBeforeFreeText": true,
       "airportConditionsBeforeFreeText": false,
       "frequency": 118600000,
       "idsEndpoint": "",
@@ -10379,7 +10379,18 @@
           "enabled": false
         }
       ],
-      "notamDefinitions": []
+      "notamDefinitions": [
+        {
+          "text": "10 DEG T INVESRION REPORTED FROM 1500 FT UP TO 4000 FT",
+          "ordinal": 1,
+          "enabled": true
+        },
+        {
+          "text": "15 DEG T INVESRION REPORTED FROM 1500 FT UP TO 4000 FT",
+          "ordinal": 1,
+          "enabled": true
+        }
+      ]
     },
     {
       "id": "6416f74e-1a90-4525-974c-96643f0a5664",
@@ -14531,38 +14542,38 @@
           },
           "standard": {
             "template": {
-              "text": "WIND TDZ {wind_dir} DEG {wind_spd} KT",
+              "text": "WIND RWY 16 TDZ {wind_dir} DEG {wind_spd} KT RWY 34 TDZ {wind_dir} DEG {wind_spd} KT",
               "voice": "WIND TOUCHDOWN ZONE {wind_dir} DEGREES, {wind_spd} KNOTS."
             }
           },
           "standardGust": {
             "template": {
-              "text": "WIND TDZ {wind_dir} DEG {wind_spd} KT MAX{wind_gust} KT",
+              "text": "WIND RWY 16 TDZ {wind_dir} DEG {wind_spd} KT MAX{wind_gust} KT RWY 34 TDZ {wind_dir} DEG {wind_spd} KT MAX{wind_gust} KT",
               "voice": "WIND TOUCHDOWN ZONE {wind_dir} DEGREES, {wind_spd} KNOTS. MAXIMUM {wind_gust} KNOTS"
             }
           },
           "variable": {
             "template": {
-              "text": "WIND TDZ VRB {wind_spd} KT",
+              "text": "WIND TDZ RWY 16 VRB {wind_spd} KT RWY 34 TDZ VRB {wind_spd} KT",
               "voice": "WIND TOUCHDOWN ZONE VARIABLE AT {wind_spd} KNOTS"
             }
           },
           "variableGust": {
             "template": {
-              "text": "WIND TDZ VRB {wind_spd} KT MAX{wind_gust} KT",
+              "text": "WIND TDZ RWY 16 VRB {wind_spd} KT MAX{wind_gust} KT TDZ RWY 34 VRB {wind_spd} KT MAX{wind_gust} KT",
               "voice": "WIND TOUCHDOWN ZONE VARIABLE AT {wind_spd} KNOTS, MAXIMUM {wind_gust} KNOTS."
             }
           },
           "variableDirection": {
             "template": {
-              "text": "VRB BTN {wind_vmin} AND {wind_vmax} DEG",
+              "text": "WIND RWY 16 TDZ VRB BTN {wind_vmin} AND {wind_vmax} DEG RWY 34 TDZ VRB BTN {wind_vmin} AND {wind_vmax} DEG",
               "voice": "VARIABLE BETWEEN {wind_vmin} AND {wind_vmax} DEGREES"
             }
           },
           "calm": {
             "calmWindSpeed": 1,
             "template": {
-              "text": "WIND CALM",
+              "text": "WIND TDZ RWY 16 CALM RWY 34 TDZ CALM",
               "voice": "WIND CALM"
             }
           }
@@ -16402,7 +16413,7 @@
           "usePlusPrefix": false,
           "speakLeadingZero": false,
           "template": {
-            "text": "T {prefix_symbol}{temp}",
+            "text": "T {temp}",
             "voice": "TEMPERATURE {temp}"
           }
         },
@@ -16410,7 +16421,7 @@
           "usePlusPrefix": false,
           "speakLeadingZero": false,
           "template": {
-            "text": "DP {prefix_symbol}{dewpoint}",
+            "text": "DP {dewpoint}",
             "voice": "DEWPOINT {dewpoint}"
           }
         },
@@ -16452,8 +16463,8 @@
         },
         "notams": {
           "template": {
-            "text": "NOTAMS... {notams}",
-            "voice": "NOTICES TO AIR MISSIONS: {notams}"
+            "text": "{notams}",
+            "voice": "{notams}"
           }
         },
         "closingStatement": {
@@ -16479,7 +16490,7 @@
           "id": "895dfd83-625d-459a-8f91-fb8250525c3d",
           "name": "34 ILS-Z (PRIMARY)",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] ILS Z APCH EXPECTED RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] ILS Z APCH EXPECTED RWY 34 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -16494,7 +16505,7 @@
           "id": "003f43eb-e8a3-4347-866b-6be5fb3ebee6",
           "name": "16 RNP (PRIMARY)",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RNP APCH EXPECTED RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RNP APCH EXPECTED RWY 16 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -16509,7 +16520,7 @@
           "id": "643b9a35-a9d8-406f-a29c-c9037c83dedb",
           "name": "34 AFIS",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RWY 34 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -16524,7 +16535,7 @@
           "id": "46c0a0b4-7e85-4119-984e-4c67b4a5ef6c",
           "name": "16 AFIS",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RWY 16 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -16539,7 +16550,7 @@
           "id": "c6e6ac5a-01df-4535-bd4c-badbc1fc6282",
           "name": "34 RNP",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RNP APCH EXPECTED RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] RNP APCH EXPECTED RWY 34 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -16554,7 +16565,7 @@
           "id": "64b4c1bf-3705-48ba-a8bd-99da8928f1b5",
           "name": "16 LOC-Z",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] LOC Z APCH EXPECTED RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] LOC Z APCH EXPECTED RWY 16 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -16569,7 +16580,7 @@
           "id": "ee877e4e-3533-47e7-98de-2f11ce035855",
           "name": "34 VISUAL",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] VISUAL APCH EXPECTED RWY 34 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] VISUAL APCH EXPECTED RWY 34 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -16584,7 +16595,7 @@
           "id": "6a66e025-c152-49b1-9cf2-a9906fae538b",
           "name": "16 VISUAL",
           "airportConditions": "",
-          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] VISUAL APCH EXPECTED RWY 16 IN USE [ARPT_COND] [TL] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
+          "template": "EFKT ARR ATIS [ATIS_CODE] [TIME] VISUAL APCH EXPECTED RWY 16 IN USE [TL] [ARPT_COND] AUTOMATIC REPORT [WIND] [VIS] [NOTAMS] [PRESENT_WX] [CLOUDS] [TEMP] [DEW] [PRESSURE]",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -20554,7 +20565,7 @@
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QFE{qfe|75}.... QNH{altimeter|hpa} // {altimeter|inhg} INCHES....",
+            "text": "QFE{qfe|94}.... QNH{altimeter|hpa} // {altimeter|inhg} INCHES....",
             "voice": "ALTIMETER {altimeter}"
           }
         },
@@ -20611,7 +20622,7 @@
           "name": "28 [PREFERRED]",
           "airportConditions": "",
           "notams": "",
-          "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 28.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 73.5 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
+          "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 28.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 94 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -20627,7 +20638,7 @@
           "ordinal": 1,
           "name": "10 CIRCLE TO LAND",
           "airportConditions": "REMARKS // RUNWAY 10 CIRCLE TO LAND IN USE․․․. AIRCRAFT EXPECT VECTORS TO DOWNWIND RWY 28 AKROTIRI․․․. FJ PLAN INITIAL TO BREAK LH TO CIRCUIT MIDS 28․․․.",
-          "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 10 RIGHT HAND.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 73.5 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
+          "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 10 RIGHT HAND.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 93.5 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -20643,7 +20654,7 @@
           "ordinal": 2,
           "name": "10 NON STANDARD",
           "airportConditions": "REMARKS // RUNWAY 10 PAR OR SURVEILLANCE APPROACH IN USE․․․.",
-          "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 10.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 73.5 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
+          "template": "RAF AKROTIRI @INFO CODE [ATIS_CODE].... [TIME]Z.... RWY 10.... [NOTAMS] [WIND] [VIS].... PRESENT WEATHER NIL.... [TEMP] [DEW] [PRESSURE] TOUCHDOWN ZONE ELEVATION 93.5 FEET.... [ARPT_COND] INFORMATION CODE [ATIS_CODE]....",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -20681,11 +20692,16 @@
         {
           "text": "RECOVERY VFR․․․",
           "ordinal": 2,
+          "enabled": false
+        },
+        {
+          "text": "RECOVERY SRA․․․",
+          "ordinal": 2,
           "enabled": true
         },
         {
           "text": "RUNWAY CONDITION IS HOT DRY․․․.",
-          "ordinal": 3,
+          "ordinal": 4,
           "enabled": true
         }
       ],
@@ -22704,7 +22720,7 @@
         {
           "id": "91bd77f5-1bf1-4434-a072-ad25b0cbec50",
           "name": "26L",
-          "airportConditions": "",
+          "airportConditions": "@26L_RCR@665 @DRYDRYWET @DEPTH_NR_NR_NR @COVERAGE_NR_NR_25",
           "notams": "@ILS APPROACH TO BE EXPECTED.",
           "template": "[FACILITY] COM ATIS [ATIS_CODE]. [TIME]. RWY IN USE 26L. [ARPT_COND]. [TL]. [NOTAMS] [WX] [CLOSING]",
           "externalGenerator": {
@@ -22841,6 +22857,11 @@
           "variableName": "26R_RCR",
           "text": "RWY26R RUNWAY CONDITION CODES:",
           "voice": "RUNWAY TWO SIX RIGHT RUNWAY CONDITION CODES."
+        },
+        {
+          "variableName": "666",
+          "text": "6/6/6",
+          "voice": "SIX, SIX, SIX."
         },
         {
           "variableName": "665",
