@@ -2,7 +2,7 @@
   "name": "Gatwick - John notbymarlon",
   "id": "e1b9fdfb-aff8-43be-8efa-bf09022dec15",
   "updateUrl": "https://raw.githubusercontent.com/JYang365/vATIS/refs/heads/main/Gatwick_John.json",
-  "updateSerial": 2025062201,
+  "updateSerial": 2025062205,
   "stations": [
     {
       "id": "9ebe0623-f64f-49af-928e-e0934c791eda",
@@ -22682,3 +22682,4 @@
   ],
   "version": 4
 }
+
